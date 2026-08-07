@@ -1,0 +1,13 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://cumakaya.com/sitemap.xml
+
+# Crawl delay (optional - milliseconds)
+# Crawl-delay: 1
+
+# Prevent crawling of sensitive paths (if any)
+# Disallow: /admin/
+# Disallow: /private/

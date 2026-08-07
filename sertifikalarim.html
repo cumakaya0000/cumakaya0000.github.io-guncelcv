@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cuma Kaya - Sertifikalarım.">
+    <meta name="author" content="Cuma Kaya">
+    <title>Sertifikalarım | Cuma Kaya - Portfolio</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="profil.jpg">
+    <link rel="apple-touch-icon" href="profil.jpg">
+    <!-- Open Graph / Google Search -->
+    <meta property="og:image" content="https://cumakaya.com/profil.jpg">
+    <meta property="og:image:width" content="400">
+    <meta property="og:image:height" content="400">
+    <meta property="og:image:alt" content="Cuma Kaya - Portfolio">
+    <meta name="twitter:image" content="https://cumakaya.com/profil.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="sertifikalarim.css">
+</head>
+<body class="light-theme">
+                        <div class="top-controls">
+        <div class="language-toggle">
+            <div class="button-borders">
+                <select class="language-select" onchange="changeLanguage(this.value)">
+                    <option value="tr">🇹🇷 Türkçe</option>
+                    <option value="en">🇬🇧 English</option>
+                    <option value="de">🇩🇪 Deutsch</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="theme-toggle" title="Temayı Değiştir">
+            <div class="button-borders">
+                <button class="primary-button" onclick="toggleTheme()">
+                    <span id="theme-icon">🌙</span>
+                    <span id="theme-text" data-tr="KOYU" data-en="DARK" data-de="DUNKE">KOYU</span>
+                </button>
+                <input type="checkbox" id="theme-checkbox" style="display: none;">
+            </div>
+        </div>
+    </div>
+    <div class="mobile-menu-btn" onclick="toggleMobileMenu()"><span>☰</span></div>
+
+    <div class="sidebar">
+        <div class="profile-section">
+            <div class="profile-upload">
+                <img id="profileImage" class="profile-img" src="profil.jpg" alt="Profil Resmi" />
+            </div>
+            <div class="profile-name">CUMA KAYA</div>
+            <div class="profile-title" data-tr="Web Developer" data-en="Web Developer" data-de="Web-Entwickler">Web Developer</div>
+            <div class="sidebar-socials">
+                <a href="https://github.com/cumakaya0000" target="_blank" title="GitHub"><i data-feather="github"></i></a>
+                <a href="https://www.linkedin.com/in/cuma-kaya3290/" target="_blank" title="LinkedIn"><i data-feather="linkedin"></i></a>
+                <a href="mailto:kcuma458@gmail.com" title="Email"><i data-feather="mail"></i></a>
+            </div>
+        </div>
+        <div class="nav-menu">
+            <a href="hakkimda.html" class="nav-item" data-tr="Hakkımda" data-en="About Me" data-de="Über Mich"><i data-feather="user"></i> Hakkımda</a>
+            <a href="egitim.html" class="nav-item" data-tr="Eğitim Hayatım" data-en="Education" data-de="Bildung"><i data-feather="book-open"></i> Eğitim Hayatım</a>
+            <a href="deneyimlerim.html" class="nav-item" data-tr="Deneyimlerim" data-en="Experience" data-de="Erfahrung"><i data-feather="briefcase"></i> Deneyimlerim</a>
+            <a href="yeteneklerim.html" class="nav-item" data-tr="Yeteneklerim" data-en="Skills" data-de="Fähigkeiten"><i data-feather="cpu"></i> Yeteneklerim</a>
+            <a href="calismalarim.html" class="nav-item" data-tr="Kendi Çalışmalarım" data-en="My Projects" data-de="Meine Projekte"><i data-feather="layout"></i> Kendi Çalışmalarım</a>
+            <a href="hobilerim.html" class="nav-item" data-tr="Hobilerim" data-en="Hobbies" data-de="Hobbys"><i data-feather="heart"></i> Hobilerim</a>
+            <a href="sertifikalarim.html" class="nav-item active" data-tr="Sertifikalarım" data-en="Certificates" data-de="Zertifikate"><i data-feather="award"></i> Sertifikalarım</a>
+            <a href="iletisim.html" class="nav-item" data-tr="İletişim" data-en="Contact" data-de="Kontakt"><i data-feather="send"></i> İletişim</a>
+        </div>
+        <div class="sidebar-footer"><p>© 2024 Cuma Kaya</p></div>
+    </div>
+
+    <div class="main-content">
+        <div id="sertifikalarim" class="section active">
+            <div class="section-header">
+                <div class="section-label" data-tr="Başarılar" data-en="Achievements" data-de="Erfolge">Başarılar</div>
+                <div class="section-title" data-tr="Sertifikalarım" data-en="Certificates" data-de="Zertifikate">Sertifikalarım</div>
+            </div>
+            <div class="certificates-grid">
+                <div class="certificate-card">
+                    <div class="certificate-name">Web Geliştirme Sertifikası</div>
+                    <div class="certificate-issuer">Udemy</div>
+                    <div class="certificate-date">Aralık 2023</div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-name">C# Programlama Dili</div>
+                    <div class="certificate-issuer">Microsoft Learn</div>
+                    <div class="certificate-date">Ekim 2023</div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-name">Responsive Web Design</div>
+                    <div class="certificate-issuer">freeCodeCamp</div>
+                    <div class="certificate-date">Ağustos 2023</div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-name">JavaScript Algoritmaları</div>
+                    <div class="certificate-issuer">freeCodeCamp</div>
+                    <div class="certificate-date">Haziran 2023</div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-name">SQL Veritabanı Yönetimi</div>
+                    <div class="certificate-issuer">Coursera</div>
+                    <div class="certificate-date">Mayıs 2023</div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-name">Git &amp; GitHub Eğitimi</div>
+                    <div class="certificate-issuer">Udemy</div>
+                    <div class="certificate-date">Mart 2023</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals (required for main.js compatibility) -->
+    <div id="hobbyModal" class="modal"><div class="modal-content"><div class="modal-close" onclick="closeHobbyModal()">✕</div><div class="modal-icon" id="modalIcon">🎮</div><div class="modal-title" id="modalTitle"></div><div class="modal-description" id="modalDescription"></div></div></div>
+    <div id="experienceModal" class="experience-modal"><div class="experience-modal-content"><div class="experience-modal-close" onclick="closeExperienceModal()">✕</div><div class="experience-modal-nav"><button class="experience-nav-btn" id="prevExpBtn" onclick="navigateExperience(-1)">← Önceki</button><button class="experience-nav-btn" id="nextExpBtn" onclick="navigateExperience(1)">Sonraki →</button></div><img id="experienceImage" class="experience-modal-image" src="/placeholder.svg" alt="" /><div class="experience-modal-date" id="experienceDate"></div><div class="experience-modal-title" id="experienceTitle"></div><div class="experience-modal-company" id="experienceCompany"></div><div class="experience-modal-description" id="experienceDescription"></div></div></div>
+    <div id="educationModal" class="education-modal"><div class="education-modal-content"><div class="education-modal-header"><h2 class="education-modal-title" id="educationModalTitle"></h2><button class="modal-close" onclick="closeEducationModal()">✕</button></div><div class="education-modal-body"><div class="education-modal-info"><h4 id="educationModalSchool"></h4><p id="educationModalDate"></p><ul id="educationModalDetails"></ul></div><p id="educationModalDescription"></p></div></div></div>
+    <div id="workModal" class="work-modal"><div class="work-modal-content"><button class="modal-close" onclick="closeWorkModal()">✕</button><div class="work-modal-image"><img id="workModalImage" src="/placeholder.svg" alt="" /></div><div class="work-modal-header"><h2 class="work-modal-title" id="workModalTitle"></h2></div><p class="work-modal-description" id="workModalDescription"></p><div class="work-modal-details"><h4 id="workModalFeaturesTitle">Özellikler</h4><ul id="workModalFeatures"></ul><div class="work-modal-tech" id="workModalTech"></div></div></div></div>
+        <!-- CV Modal -->
+    <div id="cvModal" class="cv-modal">
+        <div class="cv-modal-content">
+            <div class="cv-modal-header">
+                <span class="cv-modal-title" data-tr="📄 Özgeçmiş (CV)" data-en="📄 Resume (CV)" data-de="📄 Lebenslauf (CV)">📄 Özgeçmiş (CV)</span>
+                <button class="cv-modal-close" onclick="closeCVModal()">✕</button>
+            </div>
+            <div class="cv-modal-body" style="display: flex; flex-direction: column;">
+                <div class="cv-language-selector" style="display: flex; gap: 12px; justify-content: center; padding: 12px; border-bottom: 1px solid var(--border-color); background: var(--bg-secondary);">
+                    <button onclick="loadCV('tr')" class="cv-lang-btn active" id="cv-btn-tr">🇹🇷 Türkçe</button>
+                    <button onclick="loadCV('en')" class="cv-lang-btn" id="cv-btn-en">🇬🇧 English</button>
+                    <button onclick="loadCV('de')" class="cv-lang-btn" id="cv-btn-de">🇩🇪 Deutsch</button>
+                </div>
+                <iframe id="cvIframe" src="cv/cumakaya_cv.pdf" class="cv-iframe" style="flex: 1;" title="Cuma Kaya CV"></iframe>
+                <div class="cv-fallback" style="padding: 16px; text-align: center;">
+                    <p data-tr="PDF görüntülenemiyor." data-en="Unable to display PDF." data-de="PDF kann nicht angezeigt werden.">PDF görüntülenemiyor.</p>
+                    <a id="cvDownloadBtn" href="cv/cumakaya_cv.pdf" download class="cv-download-btn" data-tr="⬇ CV'yi İndir" data-en="⬇ Download CV" data-de="⬇ CV Herunterladen">⬇ CV'yi İndir</a>
+                </div>
+            </div>
+        </div>
+    </div></div>
+
+    <!-- Tablet/Mobil Scroll Nav -->
+    <nav class="scroll-nav" id="scrollNav" aria-label="Sayfa navigasyonu">
+        <button class="scroll-nav-btn" onclick="scrollNavPage(-1)" aria-label="Önceki sayfa" title="Önceki">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <div class="scroll-nav-dots" id="scrollNavDots"></div>
+        <button class="scroll-nav-btn" onclick="scrollNavPage(1)" aria-label="Sonraki sayfa" title="Sonraki">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+    </nav>
+    <!-- Mobil sidebar overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMobileMenu()"></div>
+    <script src="main.js"></script>
+    <script>feather.replace();</script>
+    <script>
+    // ===== SCROLL NAV =====
+    (function() {
+        var pages = [
+            { href: "hakkimda.html",       label: "Hakkımda" },
+            { href: "egitim.html",         label: "Eğitim" },
+            { href: "deneyimlerim.html",   label: "Deneyimler" },
+            { href: "yeteneklerim.html",   label: "Yetenekler" },
+            { href: "calismalarim.html",   label: "Çalışmalar" },
+            { href: "hobilerim.html",      label: "Hobilerim" },
+            { href: "sertifikalarim.html", label: "Sertifikalar" },
+            { href: "iletisim.html",       label: "İletişim" }
+        ];
+
+        var currentFile = window.location.pathname.split("/").pop() || "hakkimda.html";
+        if (!currentFile || currentFile === "") currentFile = "hakkimda.html";
+        var currentIdx = pages.findIndex(function(p){ return p.href === currentFile; });
+        if (currentIdx < 0) currentIdx = 0;
+
+        // Dot'ları oluştur
+        var dotsContainer = document.getElementById("scrollNavDots");
+        if (dotsContainer) {
+            dotsContainer.innerHTML = "";
+            pages.forEach(function(p, i) {
+                var dot = document.createElement("button");
+                dot.className = "scroll-nav-dot" + (i === currentIdx ? " active" : "");
+                dot.setAttribute("title", p.label);
+                dot.setAttribute("aria-label", p.label);
+                dot.addEventListener("click", function(){ window.location.href = p.href; });
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        // Ok butonları için global fonksiyon
+        window.scrollNavPage = function(dir) {
+            var newIdx = currentIdx + dir;
+            if (newIdx >= 0 && newIdx < pages.length) {
+                window.location.href = pages[newIdx].href;
+            }
+        };
+
+        // Klavye desteği
+        document.addEventListener("keydown", function(e) {
+            if (e.target && (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA" || e.target.tagName === "SELECT")) return;
+            if (e.key === "ArrowRight") { e.preventDefault(); window.scrollNavPage(1); }
+            if (e.key === "ArrowLeft")  { e.preventDefault(); window.scrollNavPage(-1); }
+        });
+    })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Cuma Kaya - Bilgisayar programcılığı öğrencisi. C#, JavaScript, C++, Arduino ile yazılım geliştirme ve otomasyon sistemleri üzerine çalışıyorum.">
+    <meta name="keywords" content="C#, JavaScript, Arduino, Portfolio, Web Developer, Yazılım, Otomasyon, Cuma Kaya">
+    <meta name="author" content="Cuma Kaya">
+    <title>Hakkımda | Cuma Kaya - Portfolio</title>
+    <meta name="theme-color" content="#0d0d1a">
+
+    <!-- Open Graph Tags - Sosyal Medya Paylaşımı için -->
+    <meta property="og:title" content="Cuma Kaya - Portfolio">
+    <meta property="og:description" content="Bilgisayar programcılığı öğrencisi ve web teknolojileri meraklısı">
+    <meta property="og:url" content="https://cumakaya.com">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cuma Kaya - Portfolio">
+    <meta name="twitter:description" content="Bilgisayar programcılığı öğrencisi ve web teknolojileri meraklısı">
+    <meta name="twitter:image" content="https://cumakaya.com/profil.jpg">
+
+    <!-- Schema.org Markup - Google Arama Sonuçları için Yapılandırılmış Veri -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Cuma Kaya",
+      "url": "https://cumakaya.com",
+      "image": "https://cumakaya.com/profil.jpg",
+      "jobTitle": "Web Developer / Software Engineer",
+      "sameAs": [
+        "https://github.com/cumakaya0000",
+        "https://www.linkedin.com/in/cuma-kaya3290/"
+      ],
+      "email": "kcuma458@gmail.com",
+      "description": "Bilgisayar programcılığı öğrencisi. Yazılım geliştirme, otomasyon sistemleri ve yapay zekâ üzerine çalışıyor."
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="profil.jpg">
+    <link rel="apple-touch-icon" href="profil.jpg">
+    <!-- Open Graph / Google Search -->
+    <meta property="og:image" content="https://cumakaya.com/profil.jpg">
+    <meta property="og:image:width" content="400">
+    <meta property="og:image:height" content="400">
+    <meta property="og:image:alt" content="Cuma Kaya - Portfolio">
+    <meta name="twitter:image" content="https://cumakaya.com/profil.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="hakkimda.css">
+</head>
+
+<body class="light-theme no-scroll-page">
+    <!-- Üst Kontroller (Dil ve Tema) -->
+                        <div class="top-controls">
+        <div class="language-toggle">
+            <div class="button-borders">
+                <select class="language-select" onchange="changeLanguage(this.value)">
+                    <option value="tr">🇹🇷 Türkçe</option>
+                    <option value="en">🇬🇧 English</option>
+                    <option value="de">🇩🇪 Deutsch</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="theme-toggle" title="Temayı Değiştir">
+            <div class="button-borders">
+                <button class="primary-button" onclick="toggleTheme()">
+                    <span id="theme-icon">🌙</span>
+                    <span id="theme-text" data-tr="KOYU" data-en="DARK" data-de="DUNKE">KOYU</span>
+                </button>
+                <input type="checkbox" id="theme-checkbox" style="display: none;">
+            </div>
+        </div>
+    </div>
+    <!-- Mobil menü butonu eklendi -->
+    <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <span>☰</span>
+    </div>
+
+    <div class="sidebar">
+        <div class="profile-section">
+            <div class="profile-upload">
+                <img id="profileImage" class="profile-img" src="profil.jpg" alt="Profil Resmi" />
+            </div>
+            <div class="profile-name">CUMA KAYA</div>
+            <div class="profile-title" data-tr="Web Developer" data-en="Web Developer" data-de="Web-Entwickler">Web
+                Developer</div>
+            <div class="sidebar-socials">
+                <a href="https://github.com/cumakaya0000" target="_blank" title="GitHub"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-github">
+                        <path
+                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                        </path>
+                    </svg></a>
+                <a href="https://www.linkedin.com/in/cuma-kaya3290/" target="_blank" title="LinkedIn"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-linkedin">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg></a>
+                <a href="mailto:kcuma458@gmail.com" title="Email"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg></a>
+            </div>
+        </div>
+        <div class="nav-menu">
+            <a href="hakkimda.html" class="nav-item active" data-tr="Hakkımda" data-en="About Me" data-de="Über Mich"><i data-feather="user"></i> Hakkımda</a>
+            <a href="egitim.html" class="nav-item" data-tr="Eğitim Hayatım" data-en="Education" data-de="Bildung"><i data-feather="book-open"></i> Eğitim Hayatım</a>
+            <a href="deneyimlerim.html" class="nav-item" data-tr="Deneyimlerim" data-en="Experience" data-de="Erfahrung"><i data-feather="briefcase"></i> Deneyimlerim</a>
+            <a href="yeteneklerim.html" class="nav-item" data-tr="Yeteneklerim" data-en="Skills" data-de="Fähigkeiten"><i data-feather="cpu"></i> Yeteneklerim</a>
+            <a href="calismalarim.html" class="nav-item" data-tr="Kendi Çalışmalarım" data-en="My Projects" data-de="Meine Projekte"><i data-feather="layout"></i> Kendi Çalışmalarım</a>
+            <a href="hobilerim.html" class="nav-item" data-tr="Hobilerim" data-en="Hobbies" data-de="Hobbys"><i data-feather="heart"></i> Hobilerim</a>
+            <a href="sertifikalarim.html" class="nav-item" data-tr="Sertifikalarım" data-en="Certificates" data-de="Zertifikate"><i data-feather="award"></i> Sertifikalarım</a>
+            <a href="iletisim.html" class="nav-item" data-tr="İletişim" data-en="Contact" data-de="Kontakt"><i data-feather="send"></i> İletişim</a>
+        </div>
+        <div class="sidebar-footer">
+            <p>© 2024 Cuma Kaya</p>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div id="hakkimda" class="section active">
+            <div class="section-header">
+                <div class="section-title" data-tr="Hakkımda" data-en="About Me" data-de="Über Mich">Hakkımda</div>
+                <div class="section-subtitle"
+                    data-tr="Kodlarla üretmeyi seven, sürekli yeni şeyler öğrenen bir bilgisayar programcılığı öğrencisi ve iflah olmaz bir bilgisayar programcısı tamircisiyim."
+                    data-en="A computer programming student who loves creating with code, constantly learning, and a passionate tech enthusiast."
+                    data-de="Ein Informatikstudent, der gerne mit Code erschafft, ständig Neues lernt und ein leidenschaftlicher Technik-Enthusiast ist.">
+                    Kodlarla üretmeyi seven, sürekli yeni şeyler öğrenen bir bilgisayar programcılığı öğrencisi ve iflah
+                    olmaz bir bilgisayar programcısı tamircisiyim.
+                </div>
+            </div>
+            <div class="about-content">
+                <div>
+                    <div class="about-card"
+                        style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+                        <div class="about-text"
+                            data-tr="Ben <b>Cuma Kaya</b>, bilgisayar programcılığı öğrencisiyim. Yazılım geliştirme, <b>otomasyon sistemleri</b> ve <b>yapay zekâ</b> üzerine çalışıyorum.<br><br><b>C#</b>, <b>JavaScript</b>, <b>C++</b> ve <b>Arduino</b> ile projeler geliştiriyor; <b>arbitraj botları</b>, mikroişlemci sistemleri ve düşük seviye donanım müdahaleleriyle ilgileniyorum.<br><br>Sürekli öğrenen ve üreten bir geliştiriciyim."
+                            data-en="I am <b>Cuma Kaya</b>, a computer programming student. I work on software development, <b>automation systems</b>, and <b>artificial intelligence</b>.<br><br>I build projects with <b>C#</b>, <b>JavaScript</b>, <b>C++</b>, and <b>Arduino</b>, with a focus on <b>arbitrage bots</b>, microprocessor systems, and low-level hardware.<br><br>I am a developer constantly learning and building."
+                            data-de="Ich bin <b>Cuma Kaya</b>, ein Informatikstudent. Ich arbeite an Softwareentwicklung, <b>Automatisierungssystemen</b> und <b>künstlicher Intelligenz</b>.<br><br>Ich entwickle Projekte mit <b>C#</b>, <b>JavaScript</b>, <b>C++</b> und <b>Arduino</b> — mit Fokus auf <b>Arbitrage-Bots</b>, Mikroprozessorsysteme und Low-Level-Hardware.<br><br>Ich bin ein Entwickler, der ständig lernt und produziert.">
+                            Ben <b>Cuma Kaya</b>, bilgisayar programcılığı öğrencisiyim. Yazılım geliştirme, <b>otomasyon sistemleri</b> ve <b>yapay zekâ</b> üzerine çalışıyorum.<br><br>
+                            <b>C#</b>, <b>JavaScript</b>, <b>C++</b> ve <b>Arduino</b> ile projeler geliştiriyor; <b>arbitraj botları</b>, mikroişlemci sistemleri ve düşük seviye donanım müdahaleleriyle ilgileniyorum.<br><br>
+                            Sürekli öğrenen ve üreten bir geliştiriciyim.
+                        </div>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/cuma-kaya3290/" target="_blank"
+                                class="social-icon social-linkedin" title="LinkedIn"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-linkedin">
+                                    <path
+                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                    </path>
+                                    <rect x="2" y="9" width="4" height="12"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg></a>
+                            <a href="mailto:kcuma458@gmail.com" class="social-icon social-mail" title="E-posta"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-mail">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                    </path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg></a>
+                            <a href="https://github.com/cumakaya0000" target="_blank" class="social-icon social-github"
+                                title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-github">
+                                    <path
+                                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                    </path>
+                                </svg></a>
+                            <a href="#" class="social-icon cv-btn" onclick="openCVModal(event)" title="CV İndir">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-file-text">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10 9 9 9 8 9"></polyline>
+                                </svg> CV
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-card-wrapper">
+                    <div class="custom-profile-card">
+                        <div class="imge">
+                            <div class="Usericon"></div>
+                            <p class="UserName">Cuma Kaya</p>
+                            <p class="Id">@cumakaya0000</p>
+                        </div>
+                        <div class="card-image-gallery">
+                            <img src="https://picsum.photos/400/300?random=1" alt="Portfolio" id="cardGalleryImage">
+                        </div>
+                        <div class="card-navigation">
+                            <button class="nav-btn prev-btn" id="prevGalleryBtn" title="Önceki" aria-label="Önceki">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-chevron-left">
+                                    <polyline points="15 18 9 12 15 6"></polyline>
+                                </svg>
+                            </button>
+                            <button class="nav-btn next-btn" id="nextGalleryBtn" title="Sonraki" aria-label="Sonraki">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-chevron-right">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="card-gallery-caption">açıklama metni ile değiştir</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hobby modal eklendi -->
+    <div id="hobbyModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-close" onclick="closeHobbyModal()">✕</div>
+            <div class="modal-icon" id="modalIcon">🎮</div>
+            <div class="modal-title" id="modalTitle">Hobi Başlığı</div>
+            <div class="modal-description" id="modalDescription">Hobi açıklaması burada görünecek.</div>
+        </div>
+    </div>
+
+    <!-- Deneyim modalı eklendi -->
+    <div id="experienceModal" class="experience-modal">
+        <div class="experience-modal-content">
+            <div class="experience-modal-close" onclick="closeExperienceModal()">✕</div>
+            <div class="experience-modal-nav">
+                <button class="experience-nav-btn" id="prevExpBtn" onclick="navigateExperience(-1)">← Önceki</button>
+                <button class="experience-nav-btn" id="nextExpBtn" onclick="navigateExperience(1)">Sonraki →</button>
+            </div>
+            <img id="experienceImage" class="experience-modal-image" src="https://picsum.photos/800/400?random=5"
+                alt="Deneyim Görseli" />
+            <div class="experience-modal-date" id="experienceDate">OCAK 2024 - HALEN</div>
+            <div class="experience-modal-title" id="experienceTitle">Web Developer</div>
+            <div class="experience-modal-company" id="experienceCompany">ABC Yazılım Şirketi</div>
+            <div class="experience-modal-description" id="experienceDescription">Detaylı açıklama burada görünecek.
+            </div>
+        </div>
+    </div>
+
+    <!-- Eğitim modalı eklendi -->
+    <div id="educationModal" class="education-modal">
+        <div class="education-modal-content">
+            <div class="education-modal-header">
+                <h2 class="education-modal-title" id="educationModalTitle"></h2>
+                <button class="modal-close" onclick="closeEducationModal()">✕</button>
+            </div>
+            <div class="education-modal-body">
+                <div class="education-modal-info">
+                    <h4 id="educationModalSchool"></h4>
+                    <p id="educationModalDate"></p>
+                    <ul id="educationModalDetails"></ul>
+                </div>
+                <p id="educationModalDescription"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Çalışmalar modalı eklendi -->
+    <div id="workModal" class="work-modal">
+        <div class="work-modal-content">
+            <button class="modal-close" onclick="closeWorkModal()">✕</button>
+            <div class="work-modal-image">
+                <img id="workModalImage" src="/placeholder.svg" alt="" />
+            </div>
+            <div class="work-modal-header">
+                <h2 class="work-modal-title" id="workModalTitle"></h2>
+            </div>
+            <p class="work-modal-description" id="workModalDescription"></p>
+            <div class="work-modal-details">
+                <h4 id="workModalFeaturesTitle" data-tr="Özellikler" data-en="Features" data-de="Funktionen">Özellikler
+                </h4>
+                <ul id="workModalFeatures"></ul>
+                <div class="work-modal-tech" id="workModalTech"></div>
+            </div>
+        </div>
+    </div>
+
+            <!-- CV Modal -->
+    <div id="cvModal" class="cv-modal">
+        <div class="cv-modal-content">
+            <div class="cv-modal-header">
+                <span class="cv-modal-title" data-tr="📄 Özgeçmiş (CV)" data-en="📄 Resume (CV)" data-de="📄 Lebenslauf (CV)">📄 Özgeçmiş (CV)</span>
+                <button class="cv-modal-close" onclick="closeCVModal()">✕</button>
+            </div>
+            <div class="cv-modal-body" style="display: flex; flex-direction: column;">
+                <div class="cv-language-selector" style="display: flex; gap: 12px; justify-content: center; padding: 12px; border-bottom: 1px solid var(--border-color); background: var(--bg-secondary);">
+                    <button onclick="loadCV('tr')" class="cv-lang-btn active" id="cv-btn-tr">🇹🇷 Türkçe</button>
+                    <button onclick="loadCV('en')" class="cv-lang-btn" id="cv-btn-en">🇬🇧 English</button>
+                    <button onclick="loadCV('de')" class="cv-lang-btn" id="cv-btn-de">🇩🇪 Deutsch</button>
+                </div>
+                <iframe id="cvIframe" src="cv/cumakaya_cv.pdf" class="cv-iframe" style="flex: 1;" title="Cuma Kaya CV"></iframe>
+                <div class="cv-fallback" style="padding: 16px; text-align: center;">
+                    <p data-tr="PDF görüntülenemiyor." data-en="Unable to display PDF." data-de="PDF kann nicht angezeigt werden.">PDF görüntülenemiyor.</p>
+                    <a id="cvDownloadBtn" href="cv/cumakaya_cv.pdf" download class="cv-download-btn" data-tr="⬇ CV'yi İndir" data-en="⬇ Download CV" data-de="⬇ CV Herunterladen">⬇ CV'yi İndir</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+        </div>
+    </div>
+
+    <!-- Tablet/Mobil Scroll Nav -->
+    <nav class="scroll-nav" id="scrollNav" aria-label="Sayfa navigasyonu">
+        <button class="scroll-nav-btn" onclick="scrollNavPage(-1)" aria-label="Önceki sayfa" title="Önceki">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <div class="scroll-nav-dots" id="scrollNavDots"></div>
+        <button class="scroll-nav-btn" onclick="scrollNavPage(1)" aria-label="Sonraki sayfa" title="Sonraki">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+    </nav>
+    <!-- Mobil sidebar overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMobileMenu()"></div>
+    <script src="main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const galleryImages = [
+                'https://picsum.photos/400/300?random=1',
+                'https://picsum.photos/400/300?random=2',
+                'https://picsum.photos/400/300?random=3',
+                'https://picsum.photos/400/300?random=4'
+            ];
+            let currentGalleryIndex = 0;
+            const galleryImgElement = document.getElementById('cardGalleryImage');
+            const prevBtn = document.getElementById('prevGalleryBtn');
+            const nextBtn = document.getElementById('nextGalleryBtn');
+
+            function updateGalleryImage() {
+                galleryImgElement.style.opacity = 0;
+                setTimeout(() => {
+                    galleryImgElement.src = galleryImages[currentGalleryIndex];
+                    galleryImgElement.onload = () => {
+                        galleryImgElement.style.opacity = 1;
+                    };
+                }, 300);
+            }
+
+            if (prevBtn && nextBtn && galleryImgElement) {
+                prevBtn.addEventListener('click', () => {
+                    currentGalleryIndex = (currentGalleryIndex - 1 + galleryImages.length) % galleryImages.length;
+                    updateGalleryImage();
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    currentGalleryIndex = (currentGalleryIndex + 1) % galleryImages.length;
+                    updateGalleryImage();
+                });
+            }
+        });
+    </script>
+    <script>
+    // ===== SCROLL NAV =====
+    (function() {
+        var pages = [
+            { href: "hakkimda.html",       label: "Hakkımda" },
+            { href: "egitim.html",         label: "Eğitim" },
+            { href: "deneyimlerim.html",   label: "Deneyimler" },
+            { href: "yeteneklerim.html",   label: "Yetenekler" },
+            { href: "calismalarim.html",   label: "Çalışmalar" },
+            { href: "hobilerim.html",      label: "Hobilerim" },
+            { href: "sertifikalarim.html", label: "Sertifikalar" },
+            { href: "iletisim.html",       label: "İletişim" }
+        ];
+
+        var currentFile = window.location.pathname.split("/").pop() || "hakkimda.html";
+        if (!currentFile || currentFile === "") currentFile = "hakkimda.html";
+        var currentIdx = pages.findIndex(function(p){ return p.href === currentFile; });
+        if (currentIdx < 0) currentIdx = 0;
+
+        // Dot'ları oluştur
+        var dotsContainer = document.getElementById("scrollNavDots");
+        if (dotsContainer) {
+            dotsContainer.innerHTML = "";
+            pages.forEach(function(p, i) {
+                var dot = document.createElement("button");
+                dot.className = "scroll-nav-dot" + (i === currentIdx ? " active" : "");
+                dot.setAttribute("title", p.label);
+                dot.setAttribute("aria-label", p.label);
+                dot.addEventListener("click", function(){ window.location.href = p.href; });
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        // Ok butonları için global fonksiyon
+        window.scrollNavPage = function(dir) {
+            var newIdx = currentIdx + dir;
+            if (newIdx >= 0 && newIdx < pages.length) {
+                window.location.href = pages[newIdx].href;
+            }
+        };
+
+        // Klavye desteği
+        document.addEventListener("keydown", function(e) {
+            if (e.target && (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA" || e.target.tagName === "SELECT")) return;
+            if (e.key === "ArrowRight") { e.preventDefault(); window.scrollNavPage(1); }
+            if (e.key === "ArrowLeft")  { e.preventDefault(); window.scrollNavPage(-1); }
+        });
+    })();
+    </script>
+</body>
+
+</html>

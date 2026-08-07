@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Cuma Kaya - Bilgisayar programcılığı öğrencisi. C#, JavaScript, C++, Arduino ile yazılım geliştirme ve otomasyon sistemleri üzerine çalışıyorum.">
+    <meta name="keywords" content="C#, JavaScript, Arduino, Portfolio, Web Developer, Yazılım, Otomasyon, Cuma Kaya">
+    <meta name="author" content="Cuma Kaya">
+    <title>Kendi Çalışmalarım | Cuma Kaya - Portfolio</title>
+    <meta name="theme-color" content="#0d0d1a">
+
+    <meta property="og:title" content="Cuma Kaya - Portfolio">
+    <meta property="og:description" content="Bilgisayar programcılığı öğrencisi ve web teknolojileri meraklısı">
+    <meta property="og:url" content="https://cumakaya.com">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cuma Kaya - Portfolio">
+    <meta name="twitter:description" content="Bilgisayar programcılığı öğrencisi ve web teknolojileri meraklısı">
+    <meta name="twitter:image" content="https://cumakaya.com/profil.jpg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Cuma Kaya",
+      "url": "https://cumakaya.com",
+      "image": "https://cumakaya.com/profil.jpg",
+      "jobTitle": "Web Developer / Software Engineer",
+      "sameAs": [
+        "https://github.com/cumakaya0000",
+        "https://www.linkedin.com/in/cuma-kaya3290/"
+      ],
+      "email": "kcuma458@gmail.com",
+      "description": "Bilgisayar programcılığı öğrencisi. Yazılım geliştirme, otomasyon sistemleri ve yapay zekâ üzerine çalışıyor."
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="profil.jpg">
+    <link rel="apple-touch-icon" href="profil.jpg">
+    <!-- Open Graph / Google Search -->
+    <meta property="og:image" content="https://cumakaya.com/profil.jpg">
+    <meta property="og:image:width" content="400">
+    <meta property="og:image:height" content="400">
+    <meta property="og:image:alt" content="Cuma Kaya - Portfolio">
+    <meta name="twitter:image" content="https://cumakaya.com/profil.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="calismalarim.css">
+</head>
+
+<body class="light-theme">
+    <!-- Üst Kontroller (Dil ve Tema) -->
+                        <div class="top-controls">
+        <div class="language-toggle">
+            <div class="button-borders">
+                <select class="language-select" onchange="changeLanguage(this.value)">
+                    <option value="tr">🇹🇷 Türkçe</option>
+                    <option value="en">🇬🇧 English</option>
+                    <option value="de">🇩🇪 Deutsch</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="theme-toggle" title="Temayı Değiştir">
+            <div class="button-borders">
+                <button class="primary-button" onclick="toggleTheme()">
+                    <span id="theme-icon">🌙</span>
+                    <span id="theme-text" data-tr="KOYU" data-en="DARK" data-de="DUNKE">KOYU</span>
+                </button>
+                <input type="checkbox" id="theme-checkbox" style="display: none;">
+            </div>
+        </div>
+    </div>
+    <!-- Mobil menü butonu -->
+    <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <span>☰</span>
+    </div>
+
+    <div class="sidebar">
+        <div class="profile-section">
+            <div class="profile-upload">
+                <img id="profileImage" class="profile-img" src="profil.jpg" alt="Profil Resmi" />
+            </div>
+            <div class="profile-name">CUMA KAYA</div>
+            <div class="profile-title" data-tr="Web Developer" data-en="Web Developer" data-de="Web-Entwickler">Web
+                Developer</div>
+            <div class="sidebar-socials">
+                <a href="https://github.com/cumakaya0000" target="_blank" title="GitHub"><i data-feather="github"></i></a>
+                <a href="https://www.linkedin.com/in/cuma-kaya3290/" target="_blank" title="LinkedIn"><i data-feather="linkedin"></i></a>
+                <a href="mailto:kcuma458@gmail.com" title="Email"><i data-feather="mail"></i></a>
+            </div>
+        </div>
+        <div class="nav-menu">
+            <a href="hakkimda.html" class="nav-item" data-tr="Hakkımda" data-en="About Me" data-de="Über Mich"><i data-feather="user"></i> Hakkımda</a>
+            <a href="egitim.html" class="nav-item" data-tr="Eğitim Hayatım" data-en="Education" data-de="Bildung"><i data-feather="book-open"></i> Eğitim Hayatım</a>
+            <a href="deneyimlerim.html" class="nav-item" data-tr="Deneyimlerim" data-en="Experience" data-de="Erfahrung"><i data-feather="briefcase"></i> Deneyimlerim</a>
+            <a href="yeteneklerim.html" class="nav-item" data-tr="Yeteneklerim" data-en="Skills" data-de="Fähigkeiten"><i data-feather="cpu"></i> Yeteneklerim</a>
+            <a href="calismalarim.html" class="nav-item active" data-tr="Kendi Çalışmalarım" data-en="My Projects" data-de="Meine Projekte"><i data-feather="layout"></i> Kendi Çalışmalarım</a>
+            <a href="hobilerim.html" class="nav-item" data-tr="Hobilerim" data-en="Hobbies" data-de="Hobbys"><i data-feather="heart"></i> Hobilerim</a>
+            <a href="sertifikalarim.html" class="nav-item" data-tr="Sertifikalarım" data-en="Certificates" data-de="Zertifikate"><i data-feather="award"></i> Sertifikalarım</a>
+            <a href="iletisim.html" class="nav-item" data-tr="İletişim" data-en="Contact" data-de="Kontakt"><i data-feather="send"></i> İletişim</a>
+        </div>
+        <div class="sidebar-footer">
+            <p>© 2024 Cuma Kaya</p>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div id="calismalarim" class="section active">
+            <div class="section-header">
+                <div class="section-label" data-tr="Projeler" data-en="Projects" data-de="Projekte">Projeler</div>
+                <div class="section-title" data-tr="Kendi Çalışmalarım" data-en="My Personal Projects" data-de="Meine Persönlichen Projekte">Kendi Çalışmalarım</div>
+                <div class="section-subtitle" data-tr="Kişisel olarak geliştirdiğim projeler" data-en="Projects I developed personally" data-de="Projekte, die ich persönlich entwickelt habe">
+                    Kişisel olarak geliştirdiğim projeler</div>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="🤖 Binance Arbitraj Botu" data-en="🤖 Binance Arbitrage Bot" data-de="🤖 Binance-Arbitrage-Bot">🤖 Binance Arbitraj Botu</h3>
+                        <p class="project-description"
+                            data-tr="Binance API entegrasyonu ile kripto para piyasalarını anlık takip eden, fiyat farklarını yakalayıp otomatik arbitraj ve alım-satım işlemleri gerçekleştirebilen C# tabanlı işlem botu."
+                            data-en="A C#-based trading bot integrated with the Binance API to monitor crypto markets, detect price differences, and execute automated arbitrage trades."
+                            data-de="Ein in C# entwickelter Trading-Bot mit Binance API-Integration zur Marktüberwachung, Erkennung von Preisdifferenzen und automatischen Arbitrage-Trades.">
+                            Binance API entegrasyonu ile kripto para piyasalarını anlık takip eden, fiyat farklarını yakalayıp otomatik arbitraj ve alım-satım işlemleri gerçekleştirebilen C# tabanlı işlem botu.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">C#</span>
+                            <span class="tag">Binance API</span>
+                            <span class="tag">Arbitrage</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/binance" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="🎙️ Whisper Ses Deşifre Uygulaması" data-en="🎙️ Whisper Audio Transcription" data-de="🎙️ Whisper-Audio-Transkription">🎙️ Whisper Ses Deşifre Uygulaması</h3>
+                        <p class="project-description"
+                            data-tr="Python ve Whisper modeli entegrasyonu kullanılarak ses dosyalarını (MP3/WAV) otomatik ve yüksek doğrulukla yazılı metne dönüştüren yapay zeka deşifre uygulaması."
+                            data-en="An AI-powered audio transcription application built with Python and Whisper model integration to convert audio files (MP3/WAV) into text with high accuracy."
+                            data-de="Eine KI-gestützte Audio-Transkriptionsanwendung auf Python-Basis mit Whisper-Modell-Integration zur präzisen Umwandlung von Audiodateien in Text.">
+                            Python ve Whisper modeli entegrasyonu kullanılarak ses dosyalarını (MP3/WAV) otomatik ve yüksek doğrulukla yazılı metne dönüştüren yapay zeka deşifre uygulaması.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">Python</span>
+                            <span class="tag">Whisper AI</span>
+                            <span class="tag">Speech-to-Text</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/cumakaya0000.github.io-audio-transcription" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                            <a href="https://cumakaya0000.github.io/cumakaya0000.github.io-audio-transcription/"
+                                target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">Canlı Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="🖐️ Gerçek Zamanlı El Takip Sistemi" data-en="🖐️ Real-time Hand Tracking" data-de="🖐️ Echtzeit-Hand-Tracking">🖐️ Gerçek Zamanlı El Takip Sistemi</h3>
+                        <p class="project-description"
+                            data-tr="Web kamerası aracılığıyla kullanıcının el hareketlerini, parmak eklemlerini ve koordinatlarını gerçek zamanlı analiz eden yapay zeka destekli bilgisayarlı görü uygulaması."
+                            data-en="An AI-powered computer vision web application that uses a webcam to analyze and track hand gestures, finger joints, and coordinates in real-time."
+                            data-de="Eine KI-gestützte Webanwendung für Computer Vision, die über eine Webcam Handgesten, Fingergelenke und Koordinaten in Echtzeit analysiert und verfolgt.">
+                            Web kamerası aracılığıyla kullanıcının el hareketlerini, parmak eklemlerini ve koordinatlarını gerçek zamanlı analiz eden yapay zeka destekli bilgisayarlı görü uygulaması.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">MediaPipe</span>
+                            <span class="tag">Computer Vision</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/cumakaya0000.github.io-eltakibi" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                            <a href="https://cumakaya0000.github.io/cumakaya0000.github.io-eltakibi/"
+                                target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">Canlı Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="📚 Akademik Rehber & Fakülte Portalı" data-en="📚 Academic Guide Portal" data-de="📚 Akademischer Führer">📚 Akademik Rehber & Fakülte Portalı</h3>
+                        <p class="project-description"
+                            data-tr="Üniversite fakülteleri, bölümleri ve akademisyen bilgileri için barkod/karekod tarama entegrasyonu ile hızlı bilgi erişimi sunan akademik rehber portalı."
+                            data-en="A comprehensive academic portal providing quick access to university faculty, department, and academic staff info via barcode/QR code scanning integration."
+                            data-de="Ein akademisches Portal für schnellen Zugriff auf Fakultäts- und Mitarbeiterinformationen über Barcode-/QR-Code-Scanning-Integrationen.">
+                            Üniversite fakülteleri, bölümleri ve akademisyen bilgileri için barkod/karekod tarama entegrasyonu ile hızlı bilgi erişimi sunan akademik rehber portalı.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Responsive</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/cumakaya0000.github.io-akademikrehber" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                            <a href="https://cumakaya0000.github.io/cumakaya0000.github.io-akademikrehber/"
+                                target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">Canlı Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="🌤️ Anlık Hava Durumu Portalı" data-en="🌤️ Real-time Weather App" data-de="🌤️ Echtzeit-Wetter-App">🌤️ Anlık Hava Durumu Portalı</h3>
+                        <p class="project-description"
+                            data-tr="Hava durumu API'leri ile entegre, dünya genelinde şehir arama, 5 günlük detaylı hava tahmini, nem, rüzgar hızı ve sıcaklık grafikleri sunan duyarlı web uygulaması."
+                            data-en="A responsive weather forecast web app using weather APIs to provide global city searches, 5-day forecasts, humidity, wind speed, and temperature charts."
+                            data-de="Eine responsive Wettervorhersage-Web-App mit API-Anbindung für weltweite Stadtsuche, 5-Tage-Vorhersagen und detaillierte Wetterwerte.">
+                            Hava durumu API'leri ile entegre, dünya genelinde şehir arama, 5 günlük detaylı hava tahmini, nem, rüzgar hızı ve sıcaklık grafikleri sunan duyarlı web uygulaması.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Weather API</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">Fetch API</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/cumakaya0000.github.io-havadurumu" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                            <a href="https://cumakaya0000.github.io/cumakaya0000.github.io-havadurumu/"
+                                target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">Canlı Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="🎮 İnteraktif Tabu Oyunu" data-en="🎮 Interactive Taboo Game" data-de="🎮 Interaktives Tabu-Spiel">🎮 İnteraktif Tabu Oyunu</h3>
+                        <p class="project-description"
+                            data-tr="Modern arayüz tasarımı, geniş kelime haznesi, skor takibi ve dinamik zamanlayıcı özellikleri barındıran, tarayıcı üzerinden oynanabilen etkileşimli Tabu oyunu."
+                            data-en="An interactive browser-based Taboo word game featuring a modern UI design, large vocabulary database, score tracking, and dynamic countdown timers."
+                            data-de="Ein interaktives browserbasiertes Tabu-Wortspiel mit modernem UI-Design, großer Wortdatenbank, Punktestand-Tracking und Countdown-Timern.">
+                            Modern arayüz tasarımı, geniş kelime haznesi, skor takibi ve dinamik zamanlayıcı özellikleri barındıran, tarayıcı üzerinden oynanabilen etkileşimli Tabu oyunu.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/cumakaya0000.github.io-tabu" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                            <a href="https://cumakaya0000.github.io/cumakaya0000.github.io-tabu/"
+                                target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">Canlı Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="🍽️ Restoran Otomasyon Sistemi" data-en="🍽️ Restaurant Management System" data-de="🍽️ Restaurant-Management">🍽️ Restoran Otomasyon Sistemi</h3>
+                        <p class="project-description"
+                            data-tr="Masa rezervasyonları, sipariş takibi, menü yönetimi ve detaylı raporlama araçları sunan ASP.NET tabanlı gelişmiş restoran yönetim otomasyonu."
+                            data-en="An advanced ASP.NET-based restaurant automation system featuring table reservations, order tracking, menu controls, and reporting dashboards."
+                            data-de="Ein fortschrittliches ASP.NET-Restaurantverwaltungssystem mit Tischreservierungen, Bestellverfolgung und Menüsteuerung.">
+                            Masa rezervasyonları, sipariş takibi, menü yönetimi ve detaylı raporlama araçları sunan ASP.NET tabanlı gelişmiş restoran yönetim otomasyonu.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">ASP.NET</span>
+                            <span class="tag">C#</span>
+                            <span class="tag">SQL Server</span>
+                            <span class="tag">Dashboard</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/restorant" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="🎥 YouTube Video İndirici" data-en="🎥 YouTube Video Downloader" data-de="🎥 YouTube-Video-Downloader">🎥 YouTube Video İndirici</h3>
+                        <p class="project-description"
+                            data-tr="C# ile geliştirilmiş, kullanıcıların YouTube videolarını ve oynatma listelerini farklı çözünürlük ile formatlarda (MP4/MP3) indirmesini sağlayan masaüstü yazılımı."
+                            data-en="A C# desktop application enabling users to download YouTube videos and playlists in various resolutions and formats (MP4/MP3) easily."
+                            data-de="Eine C#-Desktopanwendung, mit der Benutzer YouTube-Videos und -Wiedergabelisten in verschiedenen Auflösungen und Formaten herunterladen können.">
+                            C# ile geliştirilmiş, kullanıcıların YouTube videolarını ve oynatma listelerini farklı çözünürlük ile formatlarda (MP4/MP3) indirmesini sağlayan masaüstü yazılımı.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">C#</span>
+                            <span class="tag">Windows Forms</span>
+                            <span class="tag">YouTube API</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/yootubevideoindirme" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="🔧 TamirHanem Servis Takip" data-en="🔧 Repair Shop Automation" data-de="🔧 Werkstatt-Automatisierung">🔧 TamirHanem Servis Takip</h3>
+                        <p class="project-description"
+                            data-tr="Teknik servislerin müşteri kayıtlarını, cihaz tamir süreçlerini, yedek parça stoklarını ve cihaz durum sorgulamalarını dijitalleştiren yönetim portalı."
+                            data-en="A service tracking portal that digitalizes repair shops' customer registrations, device repair stages, spare parts stock, and device status queries."
+                            data-de="Ein Portal zur Werkstattverwaltung zur Digitalisierung von Kundenregistrierungen, Reparaturphasen und Gerätestatusabfragen.">
+                            Teknik servislerin müşteri kayıtlarını, cihaz tamir süreçlerini, yedek parça stoklarını ve cihaz durum sorgulamalarını dijitalleştiren yönetim portalı.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Responsive</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/cumakaya0000.github.io-tamirHanem" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                            <a href="https://cumakaya0000.github.io/cumakaya0000.github.io-tamirHanem/"
+                                target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">Canlı Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="💼 Kaya Dijital Kurumsal Web Sitesi" data-en="💼 Kaya Digital Business Website" data-de="💼 Kaya Digital Webseite">💼 Kaya Dijital Kurumsal Web Sitesi</h3>
+                        <p class="project-description"
+                            data-tr="Kaya Dijital ajansı için tasarlanmış; modern geçiş efektleri, portfolyo galerileri ve iletişim formları barındıran şık ve responsive kurumsal tanıtım web sitesi."
+                            data-en="A sleek, responsive corporate web design developed for Kaya Digital agency, featuring modern transitions, portfolio galleries, and contact forms."
+                            data-de="Ein elegantes, responsives Webdesign für die Agentur Kaya Digital mit modernen Übergängen, Portfolio-Galerien und Kontaktformularen.">
+                            Kaya Dijital ajansı için tasarlanmış; modern geçiş efektleri, portfolyo galerileri ve iletişim formları barındıran şık ve responsive kurumsal tanıtım web sitesi.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Corporate</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/cumakaya0000.github.io-kayadijital" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                            <a href="https://cumakaya0000.github.io/cumakaya0000.github.io-kayadijital/"
+                                target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">Canlı Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="💰 Richman Bütçe & Finans Takip" data-en="💰 Richman Budget Tracker" data-de="💰 Richman Budget-Tracker">💰 Richman Bütçe & Finans Takip</h3>
+                        <p class="project-description"
+                            data-tr="Kullanıcıların gelir, gider, borç ve birikimlerini kategorize ederek bütçe analizi yapmalarını sağlayan modern finans yönetim uygulaması."
+                            data-en="A modern financial planning web application helping users categorize income, expenses, debts, and savings for budget analysis."
+                            data-de="Eine moderne Finanzplanungs-Webanwendung, mit der Benutzer Einnahmen, Ausgaben, Schulden und Ersparnisse für Budgetanalysen kategorisieren können.">
+                            Kullanıcıların gelir, gider, borç ve birikimlerini kategorize ederek bütçe analizi yapmalarını sağlayan modern finans yönetim uygulaması.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Finance</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/cumakaya0000.github.io-richman" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                            <a href="https://cumakaya0000.github.io/cumakaya0000.github.io-richman/"
+                                target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">Canlı Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="📄 Detaylı İş Başvuru Formu" data-en="📄 Job Application Form" data-de="📄 Bewerbungsformular">📄 Detaylı İş Başvuru Formu</h3>
+                        <p class="project-description"
+                            data-tr="Zengin form denetimleri, dosya yükleme desteği ve adım adım (stepper) form yapısı içeren, dinamik kontrollere sahip iş başvuru toplama arayüzü."
+                            data-en="A job application collection form featuring step-by-step navigation, file upload support, and dynamic input validation controls."
+                            data-de="Ein Bewerbungsformular mit Schritt-für-Schritt-Navigation, Datei-Upload-Unterstützung und dynamischen Validierungskontrollen.">
+                            Zengin form denetimleri, dosya yükleme desteği ve adım adım (stepper) form yapısı içeren, dinamik kontrollere sahip iş başvuru toplama arayüzü.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/isbasvuruformu" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                            <a href="https://cumakaya0000.github.io/isbasvuruformu/"
+                                target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">Canlı Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="📔 Kişisel Öğrenme Materyali Portalı" data-en="📔 Personal Learning Tracker" data-de="📔 Lernmaterialien-Portal">📔 Kişisel Öğrenme Materyali Portalı</h3>
+                        <p class="project-description"
+                            data-tr="Kişisel çalışma notlarını, eğitim kaynaklarını ve ders materyallerini arşivleyip kategorize etmek için C# ile geliştirilmiş öğrenme takip aracı."
+                            data-en="A study tracking application built with C# to archive, tag, and categorize personal study notes, tutorials, and educational resources."
+                            data-de="Eine Lern-Tracking-Anwendung in C# zur Archivierung, Kennzeichnung und Kategorisierung persönlicher Studiennotizen und Lernmaterialien.">
+                            Kişisel çalışma notlarını, eğitim kaynaklarını ve ders materyallerini arşivleyip kategorize etmek için C# ile geliştirilmiş öğrenme takip aracı.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">C#</span>
+                            <span class="tag">Windows Forms</span>
+                            <span class="tag">Database</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/kisiselogrenmemataryeli" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="🔍 Akıllı Dükkan Arama Portalı" data-en="🔍 Shop Search & Map Portal" data-de="🔍 Shop-Suchportal">🔍 Akıllı Dükkan Arama Portalı</h3>
+                        <p class="project-description"
+                            data-tr="Harita entegrasyonu ile kullanıcılara yakın çevrelerindeki dükkan ve işletmeleri arama, filtreleme ve yol tarifi alma imkanı sunan web uygulaması."
+                            data-en="A map-integrated web application letting users search, filter, and get directions to nearby shops and businesses based on categories."
+                            data-de="Eine kartenintegrierte Webanwendung, mit der Benutzer Geschäfte in der Nähe suchen, filtern und Wegbeschreibungen abrufen können.">
+                            Harita entegrasyonu ile kullanıcılara yakın çevrelerindeki dükkan ve işletmeleri arama, filtreleme ve yol tarifi alma imkanı sunan web uygulaması.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Map API</span>
+                            <span class="tag">Geolocation</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/dukkan_arama" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                            <a href="https://cumakaya0000.github.io/dukkan_arama/"
+                                target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">Canlı Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="📄 Ela Özgeçmiş Portfolyosu" data-en="📄 Ela Resume & CV Web" data-de="📄 Ela Lebenslauf-Webseite">📄 Ela Özgeçmiş Portfolyosu</h3>
+                        <p class="project-description"
+                            data-tr="Yaratıcı ve modern bir tasarım şablonuyla kişisel yetenekleri, projeleri ve profesyonel kariyer geçmişini sergileyen özgeçmiş web sitesi."
+                            data-en="A personal resume website built with a creative, modern template showcasing skills, projects, and professional career history."
+                            data-de="Eine persönliche Lebenslauf-Website mit kreativer, moderner Vorlage zur Darstellung von Fähigkeiten, Projekten und beruflichem Werdegang.">
+                            Yaratıcı ve modern bir tasarım şablonuyla kişisel yetenekleri, projeleri ve profesyonel kariyer geçmişini sergileyen özgeçmiş web sitesi.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">CV</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/elacv" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                            <a href="https://cumakaya0000.github.io/elacv/"
+                                target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">Canlı Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="🎓 Üniversite Bilgisayar Kulübü" data-en="🎓 University Computer Club" data-de="🎓 Universitäts-Computerclub">🎓 Üniversite Bilgisayar Kulübü</h3>
+                        <p class="project-description"
+                            data-tr="Ardahan Üniversitesi Bilgisayar Kulübü için tasarlanmış; etkinlik takvimleri, duyurular, üye kayıtları ve kulüp bilgilerini içeren resmi web portalı."
+                            data-en="The official web portal developed for the Ardahan University Computer Club, featuring event calendars, announcements, and club details."
+                            data-de="Das offizielle Webportal für den Computerclub der Ardahan-Universität mit Veranstaltungskalendern, Ankündigungen und Club-Details.">
+                            Ardahan Üniversitesi Bilgisayar Kulübü için tasarlanmış; etkinlik takvimleri, duyurular, üye kayıtları ve kulüp bilgilerini içeren resmi web portalı.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">Responsive</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/cumakaya0000.github.io" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                            <a href="https://cumakaya0000.github.io/"
+                                target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">Canlı Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="🎙️ Whisper Ses Deşifre Uygulaması" data-en="🎙️ Whisper Audio Transcription" data-de="🎙️ Whisper-Audio-Transkription">🎙️ Whisper Ses Deşifre Uygulaması</h3>
+                        <p class="project-description"
+                            data-tr="Python ve Whisper modeli entegrasyonu kullanılarak ses dosyalarını (MP3/WAV) otomatik ve yüksek doğrulukla yazılı metne dönüştüren yapay zeka deşifre uygulaması."
+                            data-en="An AI-powered audio transcription application built with Python and Whisper model integration to convert audio files (MP3/WAV) into text with high accuracy."
+                            data-de="Eine KI-gestützte Audio-Transkriptionsanwendung auf Python-Basis mit Whisper-Modell-Integration zur präzisen Umwandlung von Audiodateien in Text.">
+                            Python ve Whisper modeli entegrasyonu kullanılarak ses dosyalarını (MP3/WAV) otomatik ve yüksek doğrulukla yazılı metne dönüştüren yapay zeka deşifre uygulaması.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">Python</span>
+                            <span class="tag">Whisper AI</span>
+                            <span class="tag">Speech-to-Text</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/cumakaya0000.github.io-audio-transcription" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                            <a href="https://cumakaya0000.github.io/cumakaya0000.github.io-audio-transcription/"
+                                target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">Canlı Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="🖐️ Gerçek Zamanlı El Takip Sistemi" data-en="🖐️ Real-time Hand Tracking" data-de="🖐️ Echtzeit-Hand-Tracking">🖐️ Gerçek Zamanlı El Takip Sistemi</h3>
+                        <p class="project-description"
+                            data-tr="Web kamerası aracılığıyla kullanıcının el hareketlerini, parmak eklemlerini ve koordinatlarını gerçek zamanlı analiz eden yapay zeka destekli bilgisayarlı görü uygulaması."
+                            data-en="An AI-powered computer vision web application that uses a webcam to analyze and track hand gestures, finger joints, and coordinates in real-time."
+                            data-de="Eine KI-gestützte Webanwendung für Computer Vision, die über eine Webcam Handgesten, Fingergelenke und Koordinaten in Echtzeit analysiert und verfolgt.">
+                            Web kamerası aracılığıyla kullanıcının el hareketlerini, parmak eklemlerini ve koordinatlarını gerçek zamanlı analiz eden yapay zeka destekli bilgisayarlı görü uygulaması.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">MediaPipe</span>
+                            <span class="tag">Computer Vision</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/cumakaya0000.github.io-eltakibi" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                            <a href="https://cumakaya0000.github.io/cumakaya0000.github.io-eltakibi/"
+                                target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">Canlı Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="📚 Akademik Rehber & Fakülte Portalı" data-en="📚 Academic Guide Portal" data-de="📚 Akademischer Führer">📚 Akademik Rehber & Fakülte Portalı</h3>
+                        <p class="project-description"
+                            data-tr="Üniversite fakülteleri, bölümleri ve akademisyen bilgileri için barkod/karekod tarama entegrasyonu ile hızlı bilgi erişimi sunan akademik rehber portalı."
+                            data-en="A comprehensive academic portal providing quick access to university faculty, department, and academic staff info via barcode/QR code scanning integration."
+                            data-de="Ein akademisches Portal für schnellen Zugriff auf Fakultäts- und Mitarbeiterinformationen über Barcode-/QR-Code-Scanning-Integrationen.">
+                            Üniversite fakülteleri, bölümleri ve akademisyen bilgileri için barkod/karekod tarama entegrasyonu ile hızlı bilgi erişimi sunan akademik rehber portalı.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Responsive</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/cumakaya0000.github.io-akademikrehber" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                            <a href="https://cumakaya0000.github.io/cumakaya0000.github.io-akademikrehber/"
+                                target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">Canlı Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="🌤️ Anlık Hava Durumu Portalı" data-en="🌤️ Real-time Weather App" data-de="🌤️ Echtzeit-Wetter-App">🌤️ Anlık Hava Durumu Portalı</h3>
+                        <p class="project-description"
+                            data-tr="Hava durumu API'leri ile entegre, dünya genelinde şehir arama, 5 günlük detaylı hava tahmini, nem, rüzgar hızı ve sıcaklık grafikleri sunan duyarlı web uygulaması."
+                            data-en="A responsive weather forecast web app using weather APIs to provide global city searches, 5-day forecasts, humidity, wind speed, and temperature charts."
+                            data-de="Eine responsive Wettervorhersage-Web-App mit API-Anbindung für weltweite Stadtsuche, 5-Tage-Vorhersagen und detaillierte Wetterwerte.">
+                            Hava durumu API'leri ile entegre, dünya genelinde şehir arama, 5 günlük detaylı hava tahmini, nem, rüzgar hızı ve sıcaklık grafikleri sunan duyarlı web uygulaması.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Weather API</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">Fetch API</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/cumakaya0000.github.io-havadurumu" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                            <a href="https://cumakaya0000.github.io/cumakaya0000.github.io-havadurumu/"
+                                target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">Canlı Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="🎮 İnteraktif Tabu Oyunu" data-en="🎮 Interactive Taboo Game" data-de="🎮 Interaktives Tabu-Spiel">🎮 İnteraktif Tabu Oyunu</h3>
+                        <p class="project-description"
+                            data-tr="Modern arayüz tasarımı, geniş kelime haznesi, skor takibi ve dinamik zamanlayıcı özellikleri barındıran, tarayıcı üzerinden oynanabilen etkileşimli Tabu oyunu."
+                            data-en="An interactive browser-based Taboo word game featuring a modern UI design, large vocabulary database, score tracking, and dynamic countdown timers."
+                            data-de="Ein interaktives browserbasiertes Tabu-Wortspiel mit modernem UI-Design, großer Wortdatenbank, Punktestand-Tracking und Countdown-Timern.">
+                            Modern arayüz tasarımı, geniş kelime haznesi, skor takibi ve dinamik zamanlayıcı özellikleri barındıran, tarayıcı üzerinden oynanabilen etkileşimli Tabu oyunu.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/cumakaya0000.github.io-tabu" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                            <a href="https://cumakaya0000.github.io/cumakaya0000.github.io-tabu/"
+                                target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">Canlı Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="🍽️ Restoran Otomasyon Sistemi" data-en="🍽️ Restaurant Management System" data-de="🍽️ Restaurant-Management">🍽️ Restoran Otomasyon Sistemi</h3>
+                        <p class="project-description"
+                            data-tr="Masa rezervasyonları, sipariş takibi, menü yönetimi ve detaylı raporlama araçları sunan ASP.NET tabanlı gelişmiş restoran yönetim otomasyonu."
+                            data-en="An advanced ASP.NET-based restaurant automation system featuring table reservations, order tracking, menu controls, and reporting dashboards."
+                            data-de="Ein fortschrittliches ASP.NET-Restaurantverwaltungssystem mit Tischreservierungen, Bestellverfolgung und Menüsteuerung.">
+                            Masa rezervasyonları, sipariş takibi, menü yönetimi ve detaylı raporlama araçları sunan ASP.NET tabanlı gelişmiş restoran yönetim otomasyonu.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">ASP.NET</span>
+                            <span class="tag">C#</span>
+                            <span class="tag">SQL Server</span>
+                            <span class="tag">Dashboard</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/restorant" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="🎥 YouTube Video İndirici" data-en="🎥 YouTube Video Downloader" data-de="🎥 YouTube-Video-Downloader">🎥 YouTube Video İndirici</h3>
+                        <p class="project-description"
+                            data-tr="C# ile geliştirilmiş, kullanıcıların YouTube videolarını ve oynatma listelerini farklı çözünürlük ile formatlarda (MP4/MP3) indirmesini sağlayan masaüstü yazılımı."
+                            data-en="A C# desktop application enabling users to download YouTube videos and playlists in various resolutions and formats (MP4/MP3) easily."
+                            data-de="Eine C#-Desktopanwendung, mit der Benutzer YouTube-Videos und -Wiedergabelisten in verschiedenen Auflösungen und Formaten herunterladen können.">
+                            C# ile geliştirilmiş, kullanıcıların YouTube videolarını ve oynatma listelerini farklı çözünürlük ile formatlarda (MP4/MP3) indirmesini sağlayan masaüstü yazılımı.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">C#</span>
+                            <span class="tag">Windows Forms</span>
+                            <span class="tag">YouTube API</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/yootubevideoindirme" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="🔧 TamirHanem Servis Takip" data-en="🔧 Repair Shop Automation" data-de="🔧 Werkstatt-Automatisierung">🔧 TamirHanem Servis Takip</h3>
+                        <p class="project-description"
+                            data-tr="Teknik servislerin müşteri kayıtlarını, cihaz tamir süreçlerini, yedek parça stoklarını ve cihaz durum sorgulamalarını dijitalleştiren yönetim portalı."
+                            data-en="A service tracking portal that digitalizes repair shops' customer registrations, device repair stages, spare parts stock, and device status queries."
+                            data-de="Ein Portal zur Werkstattverwaltung zur Digitalisierung von Kundenregistrierungen, Reparaturphasen und Gerätestatusabfragen.">
+                            Teknik servislerin müşteri kayıtlarını, cihaz tamir süreçlerini, yedek parça stoklarını ve cihaz durum sorgulamalarını dijitalleştiren yönetim portalı.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Responsive</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/cumakaya0000.github.io-tamirHanem" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                            <a href="https://cumakaya0000.github.io/cumakaya0000.github.io-tamirHanem/"
+                                target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">Canlı Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="💼 Kaya Dijital Kurumsal Web Sitesi" data-en="💼 Kaya Digital Business Website" data-de="💼 Kaya Digital Webseite">💼 Kaya Dijital Kurumsal Web Sitesi</h3>
+                        <p class="project-description"
+                            data-tr="Kaya Dijital ajansı için tasarlanmış; modern geçiş efektleri, portfolyo galerileri ve iletişim formları barındıran şık ve responsive kurumsal tanıtım web sitesi."
+                            data-en="A sleek, responsive corporate web design developed for Kaya Digital agency, featuring modern transitions, portfolio galleries, and contact forms."
+                            data-de="Ein elegantes, responsives Webdesign für die Agentur Kaya Digital mit modernen Übergängen, Portfolio-Galerien und Kontaktformularen.">
+                            Kaya Dijital ajansı için tasarlanmış; modern geçiş efektleri, portfolyo galerileri ve iletişim formları barındıran şık ve responsive kurumsal tanıtım web sitesi.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Corporate</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/cumakaya0000.github.io-kayadijital" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                            <a href="https://cumakaya0000.github.io/cumakaya0000.github.io-kayadijital/"
+                                target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">Canlı Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="💰 Richman Bütçe & Finans Takip" data-en="💰 Richman Budget Tracker" data-de="💰 Richman Budget-Tracker">💰 Richman Bütçe & Finans Takip</h3>
+                        <p class="project-description"
+                            data-tr="Kullanıcıların gelir, gider, borç ve birikimlerini kategorize ederek bütçe analizi yapmalarını sağlayan modern finans yönetim uygulaması."
+                            data-en="A modern financial planning web application helping users categorize income, expenses, debts, and savings for budget analysis."
+                            data-de="Eine moderne Finanzplanungs-Webanwendung, mit der Benutzer Einnahmen, Ausgaben, Schulden und Ersparnisse für Budgetanalysen kategorisieren können.">
+                            Kullanıcıların gelir, gider, borç ve birikimlerini kategorize ederek bütçe analizi yapmalarını sağlayan modern finans yönetim uygulaması.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Finance</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/cumakaya0000.github.io-richman" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                            <a href="https://cumakaya0000.github.io/cumakaya0000.github.io-richman/"
+                                target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">Canlı Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="📄 Detaylı İş Başvuru Formu" data-en="📄 Job Application Form" data-de="📄 Bewerbungsformular">📄 Detaylı İş Başvuru Formu</h3>
+                        <p class="project-description"
+                            data-tr="Zengin form denetimleri, dosya yükleme desteği ve adım adım (stepper) form yapısı içeren, dinamik kontrollere sahip iş başvuru toplama arayüzü."
+                            data-en="A job application collection form featuring step-by-step navigation, file upload support, and dynamic input validation controls."
+                            data-de="Ein Bewerbungsformular mit Schritt-für-Schritt-Navigation, Datei-Upload-Unterstützung und dynamischen Validierungskontrollen.">
+                            Zengin form denetimleri, dosya yükleme desteği ve adım adım (stepper) form yapısı içeren, dinamik kontrollere sahip iş başvuru toplama arayüzü.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/isbasvuruformu" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                            <a href="https://cumakaya0000.github.io/isbasvuruformu/"
+                                target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">Canlı Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="📔 Kişisel Öğrenme Materyali Portalı" data-en="📔 Personal Learning Tracker" data-de="📔 Lernmaterialien-Portal">📔 Kişisel Öğrenme Materyali Portalı</h3>
+                        <p class="project-description"
+                            data-tr="Kişisel çalışma notlarını, eğitim kaynaklarını ve ders materyallerini arşivleyip kategorize etmek için C# ile geliştirilmiş öğrenme takip aracı."
+                            data-en="A study tracking application built with C# to archive, tag, and categorize personal study notes, tutorials, and educational resources."
+                            data-de="Eine Lern-Tracking-Anwendung in C# zur Archivierung, Kennzeichnung und Kategorisierung persönlicher Studiennotizen und Lernmaterialien.">
+                            Kişisel çalışma notlarını, eğitim kaynaklarını ve ders materyallerini arşivleyip kategorize etmek için C# ile geliştirilmiş öğrenme takip aracı.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">C#</span>
+                            <span class="tag">Windows Forms</span>
+                            <span class="tag">Database</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/kisiselogrenmemataryeli" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="🔍 Akıllı Dükkan Arama Portalı" data-en="🔍 Shop Search & Map Portal" data-de="🔍 Shop-Suchportal">🔍 Akıllı Dükkan Arama Portalı</h3>
+                        <p class="project-description"
+                            data-tr="Harita entegrasyonu ile kullanıcılara yakın çevrelerindeki dükkan ve işletmeleri arama, filtreleme ve yol tarifi alma imkanı sunan web uygulaması."
+                            data-en="A map-integrated web application letting users search, filter, and get directions to nearby shops and businesses based on categories."
+                            data-de="Eine kartenintegrierte Webanwendung, mit der Benutzer Geschäfte in der Nähe suchen, filtern und Wegbeschreibungen abrufen können.">
+                            Harita entegrasyonu ile kullanıcılara yakın çevrelerindeki dükkan ve işletmeleri arama, filtreleme ve yol tarifi alma imkanı sunan web uygulaması.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Map API</span>
+                            <span class="tag">Geolocation</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/dukkan_arama" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                            <a href="https://cumakaya0000.github.io/dukkan_arama/"
+                                target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">Canlı Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="🌸 Esra Özgeçmiş & Portfolyo" data-en="🌸 Esra Resume & Portfolio" data-de="🌸 Esra Portfolio-Webseite">🌸 Esra Özgeçmiş & Portfolyo</h3>
+                        <p class="project-description"
+                            data-tr="Esra kullanıcı adlı profil için özel tasarlanmış, zarif detaylar, galeri alanları ve özelleştirilmiş özgeçmiş sunumu barındıran kişisel web sitesi."
+                            data-en="A custom-designed personal website showcasing elegant styling details, photography galleries, and resume sections for Esra."
+                            data-de="Eine individuell gestaltete persönliche Website mit elegantem Design, Fotogalerien und Lebenslaufabschnitten für Esra.">
+                            Esra kullanıcı adlı profil için özel tasarlanmış, zarif detaylar, galeri alanları ve özelleştirilmiş özgeçmiş sunumu barındıran kişisel web sitesi.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Portfolio</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/cumakaya0000.github.io-esra" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                            <a href="https://cumakaya0000.github.io/cumakaya0000.github.io-esra/"
+                                target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">Canlı Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="📄 Ela Özgeçmiş Portfolyosu" data-en="📄 Ela Resume & CV Web" data-de="📄 Ela Lebenslauf-Webseite">📄 Ela Özgeçmiş Portfolyosu</h3>
+                        <p class="project-description"
+                            data-tr="Yaratıcı ve modern bir tasarım şablonuyla kişisel yetenekleri, projeleri ve profesyonel kariyer geçmişini sergileyen özgeçmiş web sitesi."
+                            data-en="A personal resume website built with a creative, modern template showcasing skills, projects, and professional career history."
+                            data-de="Eine persönliche Lebenslauf-Website mit kreativer, moderner Vorlage zur Darstellung von Fähigkeiten, Projekten und beruflichem Werdegang.">
+                            Yaratıcı ve modern bir tasarım şablonuyla kişisel yetenekleri, projeleri ve profesyonel kariyer geçmişini sergileyen özgeçmiş web sitesi.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">CV</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/elacv" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                            <a href="https://cumakaya0000.github.io/elacv/"
+                                target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">Canlı Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="🎓 Üniversite Bilgisayar Kulübü" data-en="🎓 University Computer Club" data-de="🎓 Universitäts-Computerclub">🎓 Üniversite Bilgisayar Kulübü</h3>
+                        <p class="project-description"
+                            data-tr="Ardahan Üniversitesi Bilgisayar Kulübü için tasarlanmış; etkinlik takvimleri, duyurular, üye kayıtları ve kulüp bilgilerini içeren resmi web portalı."
+                            data-en="The official web portal developed for the Ardahan University Computer Club, featuring event calendars, announcements, and club details."
+                            data-de="Das offizielle Webportal für den Computerclub der Ardahan-Universität mit Veranstaltungskalendern, Ankündigungen und Club-Details.">
+                            Ardahan Üniversitesi Bilgisayar Kulübü için tasarlanmış; etkinlik takvimleri, duyurular, üye kayıtları ve kulüp bilgilerini içeren resmi web portalı.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">Responsive</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="https://github.com/cumakaya0000/cumakaya0000.github.io" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                            <a href="https://cumakaya0000.github.io/"
+                                target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">Canlı Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="🤖 Kripto Arbitraj Botu" data-en="🤖 Crypto Arbitrage Bot" data-de="🤖 Krypto-Arbitrage-Bot">🤖 Kripto Arbitraj Botu</h3>
+                        <p class="project-description"
+                            data-tr="Farklı piyasalardaki fiyat farklarını analiz ederek otomatik al-sat yapan bir bot geliştiriyorum. Gerçek zamanlı veri çekme, bildirim sistemi ve otomasyon içeriyor."
+                            data-en="I'm developing a bot that analyzes price differences in different markets and performs automatic trading."
+                            data-de="Ich entwickle einen Bot, der Preisunterschiede auf verschiedenen Märkten analysiert und automatischen Handel betreibt.">
+                            Farklı piyasalardaki fiyat farklarını analiz ederek otomatik al-sat yapan bir bot
+                            geliştiriyorum. Gerçek zamanlı veri çekme, bildirim sistemi ve otomasyon içeriyor.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">Python</span>
+                            <span class="tag">API</span>
+                            <span class="tag">Binance</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="#" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="🔌 Arduino & Donanım Projeleri" data-en="🔌 Arduino & Hardware Projects" data-de="🔌 Arduino & Hardware Projekte">🔌 Arduino & Donanım Projeleri</h3>
+                        <p class="project-description"
+                            data-tr="ESP32 ve çeşitli sensörler ile projeler geliştiriyorum. OLED ekran, veri okuma ve donanım entegrasyonu üzerine çalışmalar yaptım."
+                            data-en="I develop projects with ESP32 and various sensors. I have worked on OLED display, data reading, and hardware integration."
+                            data-de="Ich entwickle Projekte mit ESP32 und verschiedenen Sensoren. Ich habe an OLED-Displays, Datenablesung und Hardware-Integration gearbeitet.">
+                            ESP32 ve çeşitli sensörler ile projeler geliştiriyorum. OLED ekran, veri okuma ve donanım
+                            entegrasyonu üzerine çalışmalar yaptım.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">Arduino</span>
+                            <span class="tag">ESP32</span>
+                            <span class="tag">C++</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="#" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="📊 E-Ticaret Yönetim Paneli" data-en="📊 E-Commerce Dashboard" data-de="📊 E-Commerce Dashboard">📊 E-Ticaret Yönetim Paneli</h3>
+                        <p class="project-description"
+                            data-tr="Ürün yönetimi, sipariş takibi ve kullanıcı analitiği sunan modern bir dashboard uygulaması."
+                            data-en="A modern dashboard application offering product management, order tracking, and user analytics."
+                            data-de="Eine moderne Dashboard-Anwendung für Produktmanagement, Bestellverfolgung und Benutzeranalysen.">
+                            Ürün yönetimi, sipariş takibi ve kullanıcı analitiği sunan modern bir dashboard uygulaması.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Chart.js</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="#" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="📝 Görev Yönetim Uygulaması" data-en="📝 Task Management App" data-de="📝 Aufgabenverwaltungs-App">📝 Görev Yönetim Uygulaması</h3>
+                        <p class="project-description"
+                            data-tr="Günlük işleri organize etmek için sürükle-bırak özellikli yapılacaklar listesi uygulaması."
+                            data-en="A drag-and-drop to-do list application for organizing daily tasks."
+                            data-de="Eine Drag-and-Drop-ToDo-Listenanwendung zur Organisation täglicher Aufgaben.">
+                            Günlük işleri organize etmek için sürükle-bırak özellikli yapılacaklar listesi uygulaması.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">LocalStorage</span>
+                            <span class="tag">CSS3</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="#" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="☁️ Hava Durumu Uygulaması" data-en="☁️ Weather Forecast App" data-de="☁️ Wettervorhersage-App">☁️ Hava Durumu Uygulaması</h3>
+                        <p class="project-description"
+                            data-tr="Konum bazlı anlık hava durumu ve 5 günlük tahmin raporu sunan web uygulaması."
+                            data-en="Web application providing location-based instant weather and 5-day forecast reports."
+                            data-de="Webanwendung, die standortbasierte Sofortwetter- und 5-Tage-Vorhersageberichte liefert.">
+                            Konum bazlı anlık hava durumu ve 5 günlük tahmin raporu sunan web uygulaması.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">API</span>
+                            <span class="tag">OpenWeather</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="#" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="💰 Kişisel Finans Takip" data-en="💰 Personal Finance Tracker" data-de="💰 Finanz-Tracker">💰 Kişisel Finans Takip</h3>
+                        <p class="project-description"
+                            data-tr="Gelir ve giderleri kategorize ederek bütçe yönetimi sağlayan otomasyon sistemi."
+                            data-en="Automation system that provides budget management by categorizing income and expenses."
+                            data-de="Automatisierungssystem, das Budgetmanagement durch Kategorisierung von Einnahmen und Ausgaben bietet.">
+                            Gelir ve giderleri kategorize ederek bütçe yönetimi sağlayan otomasyon sistemi.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">ASP.NET</span>
+                            <span class="tag">SQL Server</span>
+                            <span class="tag">Bootstrap</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="#" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 20px;">
+                        <h3 class="project-title" data-tr="🏋️ Fitness Takip Uygulaması" data-en="🏋️ Fitness Tracker App" data-de="🏋️ Fitness-Tracker-App">🏋️ Fitness Takip Uygulaması</h3>
+                        <p class="project-description"
+                            data-tr="Egzersiz programlarını ve gelişim istatistiklerini izleyen mobil uyumlu platform."
+                            data-en="Mobile-friendly platform for tracking exercise programs and progress statistics."
+                            data-de="Mobilfreundliche Plattform zur Verfolgung von Trainingsprogrammen und Fortschrittsstatistiken.">
+                            Egzersiz programlarını ve gelişim istatistiklerini izleyen mobil uyumlu platform.</p>
+                        <div class="project-tags" style="margin-top: 15px;">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">Responsive</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <a href="#" target="_blank" class="social-icon"
+                                style="font-size: 13px; padding: 6px 12px; width: auto; height: auto; border-radius: 8px; font-weight: 600;">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hobby modal -->
+    <div id="hobbyModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-close" onclick="closeHobbyModal()">✕</div>
+            <div class="modal-icon" id="modalIcon">🎮</div>
+            <div class="modal-title" id="modalTitle">Hobi Başlığı</div>
+            <div class="modal-description" id="modalDescription">Hobi açıklaması burada görünecek.</div>
+        </div>
+    </div>
+
+    <!-- Deneyim modalı -->
+    <div id="experienceModal" class="experience-modal">
+        <div class="experience-modal-content">
+            <div class="experience-modal-close" onclick="closeExperienceModal()">✕</div>
+            <div class="experience-modal-nav">
+                <button class="experience-nav-btn" id="prevExpBtn" onclick="navigateExperience(-1)">← Önceki</button>
+                <button class="experience-nav-btn" id="nextExpBtn" onclick="navigateExperience(1)">Sonraki →</button>
+            </div>
+            <img id="experienceImage" class="experience-modal-image" src="/placeholder.svg" alt="Deneyim Görseli" />
+            <div class="experience-modal-date" id="experienceDate">OCAK 2024 - HALEN</div>
+            <div class="experience-modal-title" id="experienceTitle">Web Developer</div>
+            <div class="experience-modal-company" id="experienceCompany">ABC Yazılım Şirketi</div>
+            <div class="experience-modal-description" id="experienceDescription">Detaylı açıklama burada görünecek.</div>
+        </div>
+    </div>
+
+    <!-- Eğitim modalı -->
+    <div id="educationModal" class="education-modal">
+        <div class="education-modal-content">
+            <div class="education-modal-header">
+                <h2 class="education-modal-title" id="educationModalTitle"></h2>
+                <button class="modal-close" onclick="closeEducationModal()">✕</button>
+            </div>
+            <div class="education-modal-body">
+                <div class="education-modal-info">
+                    <h4 id="educationModalSchool"></h4>
+                    <p id="educationModalDate"></p>
+                    <ul id="educationModalDetails"></ul>
+                </div>
+                <p id="educationModalDescription"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Çalışmalar modalı -->
+    <div id="workModal" class="work-modal">
+        <div class="work-modal-content">
+            <button class="modal-close" onclick="closeWorkModal()">✕</button>
+            <div class="work-modal-image">
+                <img id="workModalImage" src="/placeholder.svg" alt="" />
+            </div>
+            <div class="work-modal-header">
+                <h2 class="work-modal-title" id="workModalTitle"></h2>
+            </div>
+            <p class="work-modal-description" id="workModalDescription"></p>
+            <div class="work-modal-details">
+                <h4 id="workModalFeaturesTitle" data-tr="Özellikler" data-en="Features" data-de="Funktionen">Özellikler</h4>
+                <ul id="workModalFeatures"></ul>
+                <div class="work-modal-tech" id="workModalTech"></div>
+            </div>
+        </div>
+    </div>
+
+            <!-- CV Modal -->
+    <div id="cvModal" class="cv-modal">
+        <div class="cv-modal-content">
+            <div class="cv-modal-header">
+                <span class="cv-modal-title" data-tr="📄 Özgeçmiş (CV)" data-en="📄 Resume (CV)" data-de="📄 Lebenslauf (CV)">📄 Özgeçmiş (CV)</span>
+                <button class="cv-modal-close" onclick="closeCVModal()">✕</button>
+            </div>
+            <div class="cv-modal-body" style="display: flex; flex-direction: column;">
+                <div class="cv-language-selector" style="display: flex; gap: 12px; justify-content: center; padding: 12px; border-bottom: 1px solid var(--border-color); background: var(--bg-secondary);">
+                    <button onclick="loadCV('tr')" class="cv-lang-btn active" id="cv-btn-tr">🇹🇷 Türkçe</button>
+                    <button onclick="loadCV('en')" class="cv-lang-btn" id="cv-btn-en">🇬🇧 English</button>
+                    <button onclick="loadCV('de')" class="cv-lang-btn" id="cv-btn-de">🇩🇪 Deutsch</button>
+                </div>
+                <iframe id="cvIframe" src="cv/cumakaya_cv.pdf" class="cv-iframe" style="flex: 1;" title="Cuma Kaya CV"></iframe>
+                <div class="cv-fallback" style="padding: 16px; text-align: center;">
+                    <p data-tr="PDF görüntülenemiyor." data-en="Unable to display PDF." data-de="PDF kann nicht angezeigt werden.">PDF görüntülenemiyor.</p>
+                    <a id="cvDownloadBtn" href="cv/cumakaya_cv.pdf" download class="cv-download-btn" data-tr="⬇ CV'yi İndir" data-en="⬇ Download CV" data-de="⬇ CV Herunterladen">⬇ CV'yi İndir</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+        </div>
+    </div>
+
+    <!-- Tablet/Mobil Scroll Nav -->
+    <nav class="scroll-nav" id="scrollNav" aria-label="Sayfa navigasyonu">
+        <button class="scroll-nav-btn" onclick="scrollNavPage(-1)" aria-label="Önceki sayfa" title="Önceki">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <div class="scroll-nav-dots" id="scrollNavDots"></div>
+        <button class="scroll-nav-btn" onclick="scrollNavPage(1)" aria-label="Sonraki sayfa" title="Sonraki">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+    </nav>
+    <!-- Mobil sidebar overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMobileMenu()"></div>
+    <script src="main.js"></script>
+    <script>
+        feather.replace();
+    </script>
+    <script>
+    // ===== SCROLL NAV =====
+    (function() {
+        var pages = [
+            { href: "hakkimda.html",       label: "Hakkımda" },
+            { href: "egitim.html",         label: "Eğitim" },
+            { href: "deneyimlerim.html",   label: "Deneyimler" },
+            { href: "yeteneklerim.html",   label: "Yetenekler" },
+            { href: "calismalarim.html",   label: "Çalışmalar" },
+            { href: "hobilerim.html",      label: "Hobilerim" },
+            { href: "sertifikalarim.html", label: "Sertifikalar" },
+            { href: "iletisim.html",       label: "İletişim" }
+        ];
+
+        var currentFile = window.location.pathname.split("/").pop() || "hakkimda.html";
+        if (!currentFile || currentFile === "") currentFile = "hakkimda.html";
+        var currentIdx = pages.findIndex(function(p){ return p.href === currentFile; });
+        if (currentIdx < 0) currentIdx = 0;
+
+        // Dot'ları oluştur
+        var dotsContainer = document.getElementById("scrollNavDots");
+        if (dotsContainer) {
+            dotsContainer.innerHTML = "";
+            pages.forEach(function(p, i) {
+                var dot = document.createElement("button");
+                dot.className = "scroll-nav-dot" + (i === currentIdx ? " active" : "");
+                dot.setAttribute("title", p.label);
+                dot.setAttribute("aria-label", p.label);
+                dot.addEventListener("click", function(){ window.location.href = p.href; });
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        // Ok butonları için global fonksiyon
+        window.scrollNavPage = function(dir) {
+            var newIdx = currentIdx + dir;
+            if (newIdx >= 0 && newIdx < pages.length) {
+                window.location.href = pages[newIdx].href;
+            }
+        };
+
+        // Klavye desteği
+        document.addEventListener("keydown", function(e) {
+            if (e.target && (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA" || e.target.tagName === "SELECT")) return;
+            if (e.key === "ArrowRight") { e.preventDefault(); window.scrollNavPage(1); }
+            if (e.key === "ArrowLeft")  { e.preventDefault(); window.scrollNavPage(-1); }
+        });
+    })();
+    </script>
+</body>
+
+</html>

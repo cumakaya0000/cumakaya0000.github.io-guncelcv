@@ -1,0 +1,228 @@
+di/* Hakkımda Sayfası Stilleri */
+
+
+  to {
+    color: #000000;
+  }
+}
+
+
+  to {
+    color: #000000;
+  }
+}
+
+
+
+
+
+body.no-scroll-page {
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-height: 100vh;
+}
+
+@media (min-width: 992px) {
+  body.no-scroll-page .main-content {
+    min-height: 100vh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
+  
+  body.no-scroll-page .section {
+    min-height: auto;
+    padding-top: 0;
+    padding-bottom: 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.profile-card-wrapper {
+  display: flex;
+  align-self: stretch;
+  height: 100%;
+  width: 100%;
+}
+
+.custom-profile-card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 30px var(--shadow-color);
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.custom-profile-card:hover {
+  box-shadow: 0 15px 40px var(--shadow-dark-hover);
+}
+
+.custom-profile-card .imge {
+  height: 96px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.custom-profile-card .imge .Usericon {
+  background-color: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  position: absolute;
+  left: 16px;
+  bottom: 8px;
+  width: 54px;
+  height: 54px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px var(--shadow-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Optional user icon inside the avatar square */
+.custom-profile-card .imge .Usericon::after {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-color: var(--text-muted);
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>') no-repeat center;
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>') no-repeat center;
+}
+
+.custom-profile-card .imge .UserName {
+  position: absolute;
+  left: 82px;
+  bottom: 22px;
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.custom-profile-card .imge .Id {
+  position: absolute;
+  left: 82px;
+  bottom: 6px;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.custom-profile-card .card-image-gallery {
+  margin: 16px 12px 10px 12px;
+  flex-grow: 1;
+  border-radius: 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  max-height: 180px;
+}
+
+.custom-profile-card .card-image-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+/*______Card Navigation______*/
+.custom-profile-card .card-navigation {
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.custom-profile-card .card-navigation:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  height: 1px;
+  background: var(--border-color);
+}
+
+.custom-profile-card .nav-btn {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px var(--shadow-color);
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+.custom-profile-card .nav-btn svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2.5;
+}
+
+.custom-profile-card .nav-btn:hover {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.custom-profile-card .card-gallery-caption {
+  padding: 0 16px 12px 16px;
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* Metin renkleri: açık tema siyah, koyu tema beyaz */
+.section-subtitle {
+  color: var(--text-secondary);
+}
+
+.about-text {
+  color: var(--text-secondary);
+}
+
+body.light-theme .section-subtitle,
+body.light-theme .about-text {
+  color: #111111;
+}
+
+body:not(.light-theme) .section-subtitle,
+body:not(.light-theme) .about-text {
+  color: #ffffff;
+}

@@ -1,0 +1,55 @@
+/* İletişim Sayfası Stilleri */
+
+/* Gönder Mesaj Bildirimi */
+.form-mesaj {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 14px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-size: 0.92rem;
+    font-weight: 500;
+    animation: fadeInUp 0.3s ease;
+    border: 1px solid transparent;
+    backdrop-filter: blur(8px);
+}
+
+.form-mesaj--basari {
+    background: rgba(34, 197, 94, 0.12);
+    border-color: rgba(34, 197, 94, 0.35);
+    color: #16a34a;
+}
+
+.dark-theme .form-mesaj--basari {
+    background: rgba(34, 197, 94, 0.15);
+    border-color: rgba(34, 197, 94, 0.4);
+    color: #4ade80;
+}
+
+.form-mesaj--hata {
+    background: rgba(239, 68, 68, 0.10);
+    border-color: rgba(239, 68, 68, 0.35);
+    color: #dc2626;
+}
+
+.dark-theme .form-mesaj--hata {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.4);
+    color: #f87171;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Uyarı mesajı tema uyumu */
+body.light-theme .form-mesaj--hata {
+  color: #b91c1c;
+}
+body:not(.light-theme) .form-mesaj--hata {
+  color: #fca5a5;
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.35);
+}

@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel | Mesajlar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons"></script>
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --accent: #ffffff;
+      --text: #ffffff;
+      --text-dim: rgba(255, 255, 255, 0.6);
+      --border: rgba(255, 255, 255, 0.1);
+      --danger: #ff4d4d;
+      --success: #00ff88;
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    h1 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+    
+    .btn {
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 1px solid var(--border);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: inherit;
+    }
+    
+    .btn-danger {
+      background: rgba(255, 77, 77, 0.1);
+      color: var(--danger);
+      border-color: rgba(255, 77, 77, 0.2);
+    }
+    
+    .btn-danger:hover {
+      background: var(--danger);
+      color: #000;
+    }
+    
+    .btn-secondary {
+      background: var(--card-bg);
+      color: var(--text);
+    }
+    
+    .btn-secondary:hover {
+      background: var(--accent);
+      color: #000;
+    }
+
+    .btn-action {
+      padding: 6px 12px;
+      font-size: 13px;
+    }
+    
+    .messages-grid {
+      display: grid;
+      gap: 20px;
+    }
+    
+    .message-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 25px;
+      transition: all 0.3s ease;
+      position: relative;
+      animation: fadeIn 0.5s ease-out backwards;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .message-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    
+    .msg-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+    
+    .sender-info b {
+      font-size: 18px;
+      display: block;
+    }
+    
+    .sender-info span {
+      color: var(--text-dim);
+      font-size: 14px;
+    }
+    
+    .msg-body {
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 20px;
+      white-space: pre-wrap;
+    }
+    
+    .msg-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 15px;
+      border-top: 1px solid var(--border);
+    }
+    
+    .date {
+      font-size: 12px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .actions {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .loading-state {
+      text-align: center;
+      padding: 100px 0;
+      color: var(--text-dim);
+    }
+    
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(255,255,255,0.1);
+      border-top: 4px solid var(--accent);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 20px;
+    }
+    
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    
+    .modal.active { display: flex; }
+    
+    .modal-content {
+      background: #111;
+      border: 1px solid var(--border);
+      padding: 30px;
+      border-radius: 24px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    }
+    
+    .modal-content h3 {
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+    
+    .form-group {
+      margin-bottom: 15px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: var(--text-dim);
+    }
+    
+    .form-group input, .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      padding: 12px;
+      border-radius: 10px;
+      color: white;
+      font-family: inherit;
+    }
+    
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    #notification {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--accent);
+      color: #000;
+      padding: 15px 25px;
+      border-radius: 12px;
+      font-weight: 600;
+      transform: translateY(100px);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 2000;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    
+    #notification.active { transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>📩 Mesaj Paneli</h1>
+    <div class="actions">
+      <a href="../anasayfa/index.html" class="btn btn-secondary"><i data-feather="home"></i> Siteye Dön</a>
+      <button id="logout-btn" class="btn btn-danger"><i data-feather="log-out"></i> Çıkış</button>
+    </div>
+  </header>
+
+  <div id="messages-container" class="messages-grid">
+    <div class="loading-state">
+      <div class="spinner"></div>
+      <p>Mesajlar yükleniyor...</p>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Modal -->
+<div id="editModal" class="modal">
+  <div class="modal-content">
+    <h3>Mesajı Düzenle</h3>
+    <input type="hidden" id="edit-id">
+    <div class="form-group">
+      <label>İsim</label>
+      <input type="text" id="edit-name">
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" id="edit-email">
+    </div>
+    <div class="form-group">
+      <label>Mesaj</label>
+      <textarea id="edit-message" rows="5"></textarea>
+    </div>
+    <div class="modal-footer">
+      <button onclick="closeModal()" class="btn btn-secondary">İptal</button>
+      <button onclick="saveUpdate()" class="btn btn-secondary" style="background: var(--accent); color: #000;">Güncelle</button>
+    </div>
+  </div>
+</div>
+
+<div id="notification">İşlem başarılı!</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  import { getFirestore, collection, getDocs, doc, deleteDoc, updateDoc, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAx5yjlt8K5LiVA3XAHPAGcHaOe0t0A798",
+    authDomain: "cv-11052026.firebaseapp.com",
+    projectId: "cv-11052026",
+    storageBucket: "cv-11052026.firebasestorage.app",
+    messagingSenderId: "580855687510",
+    appId: "1:580855687510:web:6d7116da23431201938ef7",
+    measurementId: "G-C7SQRTZ2TB"
+  };
+
+  let firebaseAuth;
+  let firestoreDb;
+  const app = initializeApp(firebaseConfig);
+  firebaseAuth = getAuth(app);
+  firestoreDb = getFirestore(app);
+
+  onAuthStateChanged(firebaseAuth, async (user) => {
+    // yüklenme tamamlanmadan işlem yapma
+    if (user === undefined) return;
+
+    console.log("Panel Auth:", user ? user.email : "Logged out");
+
+    // login yoksa admin sayfasına dön
+    if (!user) {
+      window.location.replace("admin.html");
+      return;
+    }
+
+    // sadece yetkili mail
+    const authorizedEmail = "kayacuma668@gmail.com";
+
+    if (
+      !user.email ||
+      user.email.toLowerCase() !== authorizedEmail.toLowerCase()
+    ) {
+      await signOut(firebaseAuth);
+      alert("Yetkisiz kullanıcı");
+      window.location.replace("admin.html");
+      return;
+    }
+
+    // sadece 1 kere yükle
+    if (!window.messagesLoaded) {
+      window.messagesLoaded = true;
+      loadMessages();
+    }
+  });
+
+  async function loadMessages() {
+    const container = document.getElementById("messages-container");
+    if (!container) return;
+    
+    try {
+      const q = query(collection(firestoreDb, "mesajlar"), orderBy("tarih", "desc"));
+      const snap = await getDocs(q);
+      
+      if (snap.empty) {
+        container.innerHTML = '<div class="loading-state"><p>Henüz mesaj yok.</p></div>';
+        return;
+      }
+      
+      container.innerHTML = "";
+      snap.forEach(docSnap => {
+        const d = docSnap.data();
+        const id = docSnap.id;
+        const date = d.tarih ? new Date(d.tarih.seconds * 1000).toLocaleString('tr-TR') : "Tarih yok";
+        
+        const card = document.createElement("div");
+        card.className = "message-card";
+        
+        // Güvenli DOM oluşturma (Inline JS yok)
+        card.innerHTML = `
+          <div class="msg-header">
+            <div class="sender-info">
+              <b>${escapeHtml(d.isim || 'İsimsiz')}</b>
+              <span>${escapeHtml(d.email || 'E-posta yok')}</span>
+            </div>
+          </div>
+          <div class="msg-body">${escapeHtml(d.mesaj || '')}</div>
+          <div class="msg-footer">
+            <div class="date">${date}</div>
+            <div class="actions">
+              <button class="btn btn-secondary btn-action edit-btn" data-id="${id}"><i data-feather="edit-2"></i> Güncelle</button>
+              <button class="btn btn-danger btn-action delete-btn" data-id="${id}"><i data-feather="trash-2"></i> Sil</button>
+            </div>
+          </div>
+        `;
+        
+        // Event Listener'ları bağla
+        const editBtn = card.querySelector('.edit-btn');
+        const deleteBtn = card.querySelector('.delete-btn');
+        
+        editBtn.addEventListener('click', () => openEdit(id, d.isim, d.email, d.mesaj));
+        deleteBtn.addEventListener('click', () => confirmDelete(id));
+        
+        container.appendChild(card);
+      });
+      
+      if (window.feather) window.feather.replace();
+    } catch (err) {
+      console.error(err);
+      container.innerHTML = `<div class="loading-state"><p style="color:red">Hata: ${err.message}</p></div>`;
+    }
+  }
+
+  async function confirmDelete(id) {
+    if (confirm("Bu mesajı silmek istediğinize emin misiniz?")) {
+      try {
+        await deleteDoc(doc(firestoreDb, "mesajlar", id));
+        notify("Mesaj silindi");
+        loadMessages();
+      } catch (err) {
+        alert("Hata: " + err.message);
+      }
+    }
+  }
+
+  function openEdit(id, name, email, msg) {
+    document.getElementById("edit-id").value = id;
+    document.getElementById("edit-name").value = name || "";
+    document.getElementById("edit-email").value = email || "";
+    document.getElementById("edit-message").value = msg || "";
+    document.getElementById("editModal").classList.add("active");
+  }
+
+  window.closeModal = () => {
+    document.getElementById("editModal").classList.remove("active");
+  };
+
+  window.saveUpdate = async () => {
+    const id = document.getElementById("edit-id").value;
+    const name = document.getElementById("edit-name").value.trim();
+    const email = document.getElementById("edit-email").value.trim();
+    const msg = document.getElementById("edit-message").value.trim();
+    
+    // 🛡️ VALIDATION
+    if (!name || !email || !msg) {
+      alert("Lütfen tüm alanları doldurun.");
+      return;
+    }
+
+    if (name.length > 50) {
+      alert("İsim çok uzun (Maks 50 karakter)");
+      return;
+    }
+
+    if (msg.length > 1000) {
+      alert("Mesaj çok uzun (Maks 1000 karakter)");
+      return;
+    }
+    
+    try {
+      await updateDoc(doc(firestoreDb, "mesajlar", id), {
+        isim: name,
+        email: email,
+        mesaj: msg,
+        guncellemeTarihi: serverTimestamp() // Güncelleme tarihini de tutalım
+      });
+      closeModal();
+      notify("Mesaj güncellendi");
+      loadMessages();
+    } catch (err) {
+      alert("Hata: " + err.message);
+    }
+  };
+
+  async function handleLogout() {
+    try {
+      await signOut(firebaseAuth);
+      window.location.href = "admin.html";
+    } catch (err) {
+      console.error("Çıkış yaparken hata:", err);
+      alert("Çıkış yapılamadı: " + err.message);
+    }
+  }
+
+  const setupEvents = () => {
+    const logoutBtn = document.getElementById("logout-btn");
+    if (logoutBtn) {
+      logoutBtn.addEventListener("click", handleLogout);
+    }
+    
+    // Feather replace güvenli çalıştırma
+    if (window.feather) {
+      feather.replace();
+    }
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setupEvents);
+  } else {
+    setupEvents();
+  }
+
+  function notify(text) {
+    const n = document.getElementById("notification");
+    if (n) {
+      n.textContent = text;
+      n.classList.add("active");
+      setTimeout(() => n.classList.remove("active"), 3000);
+    }
+  }
+
+  function escapeHtml(text) {
+    if (!text) return '';
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+  
+  // escapeJs artık card rendering içinde gerekmediği için kaldırılabilir 
+  // ama yine de yardımcı fonksiyon olarak kalabilir.
+
+  window.loadMessages = loadMessages;
+  window.logout = handleLogout;
+</script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Giriş | Cuma Kaya</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --accent: #ffffff;
+      --text: #ffffff;
+      --text-dim: rgba(255, 255, 255, 0.6);
+      --border: rgba(255, 255, 255, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .bg-glow {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+      z-index: -1;
+    }
+
+    .login-card {
+      width: 100%;
+      max-width: 400px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 32px;
+      font-weight: 800;
+    }
+
+    .input-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 13px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      outline: none;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      color: white;
+      font-size: 15px;
+      border: 1px solid transparent;
+      transition: 0.3s;
+    }
+
+    input:focus {
+      border-color: white;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 12px;
+      background: white;
+      color: black;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    #error-msg {
+      margin-top: 15px;
+      color: #ff5f5f;
+      text-align: center;
+      min-height: 20px;
+      font-size: 14px;
+    }
+
+    .footer-link {
+      margin-top: 25px;
+      text-align: center;
+    }
+
+    .footer-link a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .loader {
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(0, 0, 0, 0.2);
+      border-top: 2px solid black;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      display: none;
+      margin: auto;
+    }
+
+    @keyframes spin {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="bg-glow"></div>
+
+  <div class="login-card">
+
+    <h2>Admin Giriş</h2>
+
+    <div class="input-group">
+      <label>Email</label>
+      <input id="email" type="email" placeholder="admin@example.com">
+    </div>
+
+    <div class="input-group">
+      <label>Şifre</label>
+      <input id="password" type="password" placeholder="••••••••">
+    </div>
+
+    <button id="loginBtn">
+      <span id="btnText">Giriş Yap</span>
+      <div id="loader" class="loader"></div>
+    </button>
+
+    <div id="error-msg"></div>
+
+    <div class="footer-link">
+      <a href="../anasayfa/index.html">← Portfolyoya Dön</a>
+    </div>
+
+  </div>
+
+  <script type="module">
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+    import {
+      getAuth,
+      signInWithEmailAndPassword,
+      onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAx5yjlt8K5LiVA3XAHPAGcHaOe0t0A798",
+      authDomain: "cv-11052026.firebaseapp.com",
+      projectId: "cv-11052026",
+      storageBucket: "cv-11052026.firebasestorage.app",
+      messagingSenderId: "580855687510",
+      appId: "1:580855687510:web:6d7116da23431201938ef7",
+      measurementId: "G-C7SQRTZ2TB"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const loginBtn = document.getElementById("loginBtn");
+
+    loginBtn.addEventListener("click", login);
+
+    async function login() {
+
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      const btnText = document.getElementById("btnText");
+      const loader = document.getElementById("loader");
+      const errorMsg = document.getElementById("error-msg");
+
+      errorMsg.textContent = "";
+
+      if (!email || !password) {
+        errorMsg.textContent = "Email ve şifre gerekli";
+        return;
+      }
+
+      loginBtn.disabled = true;
+      btnText.style.display = "none";
+      loader.style.display = "block";
+
+      try {
+
+        const userCredential = await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+
+        const user = userCredential.user;
+
+        // 🔐 SADECE SENİN EMAİLİN
+        if (user.email !== "kayacuma668@gmail.com") {
+
+          errorMsg.textContent = "Yetkisiz kullanıcı";
+          loginBtn.disabled = false;
+          btnText.style.display = "block";
+          loader.style.display = "none";
+
+          return;
+        }
+
+        window.location.replace("panel.html");
+
+      } catch (err) {
+
+        console.error(err);
+
+        if (err.code === "auth/invalid-credential") {
+          errorMsg.textContent = "Email veya şifre hatalı";
+        }
+        else if (err.code === "auth/too-many-requests") {
+          errorMsg.textContent = "Çok fazla deneme yapıldı";
+        }
+        else {
+          errorMsg.textContent = err.message;
+        }
+
+        loginBtn.disabled = false;
+        btnText.style.display = "block";
+        loader.style.display = "none";
+      }
+    }
+
+    onAuthStateChanged(auth, (user) => {
+      // İlk yüklenmede undefined durumunu boş geç
+      if (user === undefined) return;
+      
+      console.log("Admin Auth State:", user ? user.email : "Logged out");
+      
+      if (user && user.email && user.email.toLowerCase() === "kayacuma668@gmail.com") {
+        console.log("Yetkili kullanıcı bulundu, yönlendiriliyor...");
+        window.location.replace("panel.html");
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        login();
+      }
+    });
+
+  </script>
+
+</body>
+
+</html>
