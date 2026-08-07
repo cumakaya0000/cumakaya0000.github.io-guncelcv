@@ -9,7 +9,14 @@
     <!-- Ana sayfa hakkimda.html'ye yönlendiriliyor -->
     <meta http-equiv="refresh" content="0; url=hakkimda.html">
     <link rel="canonical" href="hakkimda.html">
-    <script>if (window.location.protocol === "file:") { window.location.replace("hakkimda.html"); } else { window.location.replace("hakkimda"); }</script>
+    <script>
+        if (window.location.protocol === "file:") {
+            window.location.replace("hakkimda.html");
+        } else {
+            const activePage = sessionStorage.getItem('activePage') || 'hakkimda.html';
+            window.location.replace(activePage);
+        }
+    </script>
 </head>
 <body>
     <p>Yönlendiriliyor... <a href="hakkimda.html">Tıklayın</a></p>

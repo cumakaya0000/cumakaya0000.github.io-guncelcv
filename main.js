@@ -944,36 +944,24 @@ let currentLanguage = 'tr';
         { href: "iletisim.html",       label: "İletişim" }
     ];
 
+    // Capture the actual page filename before we clean the URL
+    let currentFile = window.location.pathname.split("/").pop() || "hakkimda.html";
+    if (currentFile === "" || currentFile === "index") currentFile = "hakkimda.html";
+
     const isLocalFile = window.location.protocol === 'file:';
 
-    // 1. Clean URLs (remove .html on live server)
+    // 1. Clean URLs (always rewrite to / on live server)
     if (!isLocalFile) {
-        if (window.location.pathname.endsWith('.html')) {
-            let cleanUrl = window.location.pathname.slice(0, -5);
-            if (cleanUrl.endsWith('/index')) {
-                cleanUrl = cleanUrl.slice(0, -5);
-            }
-            cleanUrl = (cleanUrl || '/') + window.location.search + window.location.hash;
-            window.history.replaceState(null, '', cleanUrl);
-        }
+        // Save the active page in sessionStorage so that refresh works
+        sessionStorage.setItem('activePage', currentFile);
 
-        // 2. Strip .html extension from links dynamically
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('a[href$=".html"]').forEach(link => {
-                const href = link.getAttribute('href');
-                if (href && !href.startsWith('http') && !href.startsWith('//')) {
-                    link.setAttribute('href', href.slice(0, -5));
-                }
-            });
-        });
+        // Rewrite address bar to root "/"
+        window.history.replaceState(null, '', '/');
     }
 
-    // 3. Scroll Navigation Dots and Control
+    // 2. Scroll Navigation Dots and Control
     document.addEventListener('DOMContentLoaded', () => {
-        let currentFile = window.location.pathname.split("/").pop() || "hakkimda.html";
-        if (currentFile === "" || currentFile === "index") currentFile = "hakkimda.html";
-        
-        // Remove .html for comparison if not on file protocol
+        // Find active page index
         const cleanCurrentFile = currentFile.endsWith(".html") ? currentFile.slice(0, -5) : currentFile;
 
         const currentIdx = pages.findIndex(p => {
@@ -993,9 +981,9 @@ let currentLanguage = 'tr';
                 dot.setAttribute("title", p.label);
                 dot.setAttribute("aria-label", p.label);
                 
-                const targetUrl = isLocalFile ? p.href : p.href.slice(0, -5);
+                // Clicking a dot navigates to the page
                 dot.addEventListener("click", () => {
-                    window.location.href = targetUrl;
+                    window.location.href = p.href;
                 });
                 dotsContainer.appendChild(dot);
             });
@@ -1005,8 +993,7 @@ let currentLanguage = 'tr';
         window.scrollNavPage = function(dir) {
             const newIdx = activeIdx + dir;
             if (newIdx >= 0 && newIdx < pages.length) {
-                const targetUrl = isLocalFile ? pages[newIdx].href : pages[newIdx].href.slice(0, -5);
-                window.location.href = targetUrl;
+                window.location.href = pages[newIdx].href;
             }
         };
 
