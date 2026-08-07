@@ -290,55 +290,7 @@
     <script>
         feather.replace();
     </script>
-    <script>
-    // ===== SCROLL NAV =====
-    (function() {
-        var pages = [
-            { href: "hakkimda.html",       label: "Hakkımda" },
-            { href: "egitim.html",         label: "Eğitim" },
-            { href: "deneyimlerim.html",   label: "Deneyimler" },
-            { href: "yeteneklerim.html",   label: "Yetenekler" },
-            { href: "calismalarim.html",   label: "Çalışmalar" },
-            { href: "hobilerim.html",      label: "Hobilerim" },
-            { href: "sertifikalarim.html", label: "Sertifikalar" },
-            { href: "iletisim.html",       label: "İletişim" }
-        ];
-
-        var currentFile = window.location.pathname.split("/").pop() || "hakkimda.html";
-        if (!currentFile || currentFile === "") currentFile = "hakkimda.html";
-        var currentIdx = pages.findIndex(function(p){ return p.href === currentFile; });
-        if (currentIdx < 0) currentIdx = 0;
-
-        // Dot'ları oluştur
-        var dotsContainer = document.getElementById("scrollNavDots");
-        if (dotsContainer) {
-            dotsContainer.innerHTML = "";
-            pages.forEach(function(p, i) {
-                var dot = document.createElement("button");
-                dot.className = "scroll-nav-dot" + (i === currentIdx ? " active" : "");
-                dot.setAttribute("title", p.label);
-                dot.setAttribute("aria-label", p.label);
-                dot.addEventListener("click", function(){ window.location.href = p.href; });
-                dotsContainer.appendChild(dot);
-            });
-        }
-
-        // Ok butonları için global fonksiyon
-        window.scrollNavPage = function(dir) {
-            var newIdx = currentIdx + dir;
-            if (newIdx >= 0 && newIdx < pages.length) {
-                window.location.href = pages[newIdx].href;
-            }
-        };
-
-        // Klavye desteği
-        document.addEventListener("keydown", function(e) {
-            if (e.target && (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA" || e.target.tagName === "SELECT")) return;
-            if (e.key === "ArrowRight") { e.preventDefault(); window.scrollNavPage(1); }
-            if (e.key === "ArrowLeft")  { e.preventDefault(); window.scrollNavPage(-1); }
-        });
-    })();
-    </script>
+    
 </body>
 
 </html>

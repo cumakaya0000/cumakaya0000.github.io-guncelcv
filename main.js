@@ -928,3 +928,93 @@ let currentLanguage = 'tr';
                 }
             });
         });
+
+// ==========================================
+// CLEAN URLS & UNIFIED SCROLL NAVIGATION
+// ==========================================
+(function() {
+    const pages = [
+        { href: "hakkimda.html",       label: "Hakkımda" },
+        { href: "egitim.html",         label: "Eğitim" },
+        { href: "deneyimlerim.html",   label: "Deneyimler" },
+        { href: "yeteneklerim.html",   label: "Yetenekler" },
+        { href: "calismalarim.html",   label: "Çalışmalar" },
+        { href: "hobilerim.html",      label: "Hobilerim" },
+        { href: "sertifikalarim.html", label: "Sertifikalar" },
+        { href: "iletisim.html",       label: "İletişim" }
+    ];
+
+    const isLocalFile = window.location.protocol === 'file:';
+
+    // 1. Clean URLs (remove .html on live server)
+    if (!isLocalFile) {
+        if (window.location.pathname.endsWith('.html')) {
+            let cleanUrl = window.location.pathname.slice(0, -5);
+            if (cleanUrl.endsWith('/index')) {
+                cleanUrl = cleanUrl.slice(0, -5);
+            }
+            cleanUrl = (cleanUrl || '/') + window.location.search + window.location.hash;
+            window.history.replaceState(null, '', cleanUrl);
+        }
+
+        // 2. Strip .html extension from links dynamically
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('a[href$=".html"]').forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && !href.startsWith('http') && !href.startsWith('//')) {
+                    link.setAttribute('href', href.slice(0, -5));
+                }
+            });
+        });
+    }
+
+    // 3. Scroll Navigation Dots and Control
+    document.addEventListener('DOMContentLoaded', () => {
+        let currentFile = window.location.pathname.split("/").pop() || "hakkimda.html";
+        if (currentFile === "" || currentFile === "index") currentFile = "hakkimda.html";
+        
+        // Remove .html for comparison if not on file protocol
+        const cleanCurrentFile = currentFile.endsWith(".html") ? currentFile.slice(0, -5) : currentFile;
+
+        const currentIdx = pages.findIndex(p => {
+            const cleanHref = p.href.endsWith(".html") ? p.href.slice(0, -5) : p.href;
+            return cleanHref === cleanCurrentFile;
+        });
+
+        const activeIdx = currentIdx < 0 ? 0 : currentIdx;
+
+        // Generate dots
+        const dotsContainer = document.getElementById("scrollNavDots");
+        if (dotsContainer) {
+            dotsContainer.innerHTML = "";
+            pages.forEach((p, i) => {
+                const dot = document.createElement("button");
+                dot.className = "scroll-nav-dot" + (i === activeIdx ? " active" : "");
+                dot.setAttribute("title", p.label);
+                dot.setAttribute("aria-label", p.label);
+                
+                const targetUrl = isLocalFile ? p.href : p.href.slice(0, -5);
+                dot.addEventListener("click", () => {
+                    window.location.href = targetUrl;
+                });
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        // Global scroll navigation function
+        window.scrollNavPage = function(dir) {
+            const newIdx = activeIdx + dir;
+            if (newIdx >= 0 && newIdx < pages.length) {
+                const targetUrl = isLocalFile ? pages[newIdx].href : pages[newIdx].href.slice(0, -5);
+                window.location.href = targetUrl;
+            }
+        };
+
+        // Keyboard arrow navigation
+        document.addEventListener("keydown", (e) => {
+            if (e.target && (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA" || e.target.tagName === "SELECT")) return;
+            if (e.key === "ArrowRight") { e.preventDefault(); window.scrollNavPage(1); }
+            if (e.key === "ArrowLeft")  { e.preventDefault(); window.scrollNavPage(-1); }
+        });
+    });
+})();
